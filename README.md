@@ -38,7 +38,7 @@ The project is being developed around five complementary modules.
 | 02. OpenDamir | Healthcare reimbursement data processing and cost estimation | Planned |
 | 03. OpenMedic | Pharmaceutical reimbursement analysis and ATC classification | Initial synthetic demonstration available |
 | 04. Laboratory Costs | Diagnostic testing activity and expenditure | Planned |
-| 05. Monte Carlo Simulation | Probabilistic uncertainty and sensitivity analyses | Planned |
+| 05. Monte Carlo Simulation | Probabilistic uncertainty and sensitivity analyses | Available — synthetic demonstration |
 
 The planned modules will be adapted from previously developed analytical scripts, using synthetic data wherever necessary.
 
