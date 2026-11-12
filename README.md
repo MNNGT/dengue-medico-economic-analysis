@@ -68,7 +68,54 @@ The allocation coefficient and simulated reimbursement amounts are demonstration
 
 ## Tools and Methods
 
-The analytical workflow draws on the following tools and methodological approaches:
+## Monte Carlo Simulation
+
+This module demonstrates a probabilistic cost-of-illness analysis using R and 10,000 Monte Carlo iterations.
+
+Adapted from my Master's research methodology, it combines direct healthcare costs and indirect productivity losses under uncertainty.
+
+### Methods
+
+- Normal distributions for healthcare expenditures and excess cases.
+- Triangular distributions for hospital stays and sick leave durations.
+- Uniform distributions for non-reimbursed medication assumptions.
+- Estimation of direct, indirect, and total economic costs.
+- Comparison of epidemiological scenarios.
+- One-way sensitivity analyses of wages and sick leave duration.
+
+### Illustrative Results
+
+The synthetic baseline scenario produced:
+
+| Indicator | Simulated result |
+|---|---|
+| Mean total cost | 7.700 million EUR |
+| Median total cost | 7.693 million EUR |
+| 95% simulation interval | 6.537–8.911 million EUR |
+| Direct cost contribution | 84.9% |
+| Indirect cost contribution | 15.1% |
+
+**These results are entirely synthetic and must not be interpreted as actual estimates for Martinique.**
+
+### Visualizations
+
+![Monte Carlo distributions](outputs/figures/monte_carlo_synthetic_distributions.png)
+
+Additional figures:
+
+- [Input variable distributions](outputs/figures/monte_carlo_input_distributions.png)
+- [Cost breakdown](outputs/figures/monte_carlo_cost_breakdown_synthetic.png)
+- [One-way sensitivity analysis](outputs/figures/monte_carlo_tornado_synthetic.png)
+
+### Code and Results
+
+- [Complete R simulation script](R/monte_carlo_synthetic.R)
+- [Scenario comparison (CSV)](outputs/tables/monte_carlo_scenario_comparison.csv)
+- [Cost breakdown (CSV)](outputs/tables/monte_carlo_cost_breakdown.csv)
+- [Sensitivity analysis (CSV)](outputs/tables/monte_carlo_sensitivity_analysis.csv)
+
+The simulation is reproducible using a fixed random seed and requires no confidential datasets.
+
 
 **Programming and data processing**
 - R and RStudio
