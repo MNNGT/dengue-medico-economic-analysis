@@ -1,0 +1,7 @@
+"Parameter","Scenario","Mean_MEUR","Variation_pct"
+"Daily wage","Low wage",7.40927633565578,-3.7779139571148
+"Daily wage","Baseline wage",7.70018260917098,0
+"Daily wage","High wage",8.76683894539337,13.8523511760876
+"Sick leave duration","Shorter sick leave",7.467,-3.02
+"Sick leave duration","Baseline duration",7.7,0
+"Sick leave duration","Longer sick leave",7.933,3.02
