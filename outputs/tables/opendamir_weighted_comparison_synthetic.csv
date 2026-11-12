@@ -1,0 +1,4 @@
+period_flow,1 - Full flow,2 - Strict care,3 - Cumulative,full_minus_strict,cumulative_minus_strict
+Baseline 2022-2023,116210.22,99685.41,99685.41,16524.81,0
+Epidemic 2023-2024,123674.38,108002.71,112920.83,15671.67,4918.12
+Baseline 2025,100411.84,83396.27,85088.65,17015.57,1692.38

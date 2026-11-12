@@ -1,0 +1,10 @@
+period_flow,method,observations,reimbursement_eur
+Baseline 2022-2023,1 - Full flow,6957,721778.75
+Baseline 2022-2023,2 - Strict care,5966,617536.2
+Baseline 2022-2023,3 - Cumulative,5966,617536.2
+Epidemic 2023-2024,1 - Full flow,7072,744999.08
+Epidemic 2023-2024,2 - Strict care,6139,649078.52
+Epidemic 2023-2024,3 - Cumulative,6435,679415.99
+Baseline 2025,1 - Full flow,5462,574824.32
+Baseline 2025,2 - Strict care,4524,476550.1
+Baseline 2025,3 - Cumulative,4617,486585.62
