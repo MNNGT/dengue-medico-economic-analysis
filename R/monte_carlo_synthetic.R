@@ -392,3 +392,711 @@ cat(
   all(total_cost_sim >= 0),
   "\n"
 )
+
+
+# 9. SENSITIVITY ANALYSIS — CASE INDICATOR -------------------
+
+# Scenario A: estimated excess cases (already simulated)
+scenario_A_total <- total_cost_sim
+
+# Scenario B: reported excess cases
+# Reuse the same standardized uncertainty across scenarios
+standardized_case_draws <- (
+  excess_cases_sim - excess_cases_estimated
+) / (excess_cases_estimated * 0.10)
+
+reported_cases_sim <- pmax(
+  round(
+    excess_cases_reported +
+      standardized_case_draws * (excess_cases_reported * 0.10)
+  ),
+  0
+)
+
+# Recalculate productivity losses for Scenario B
+scenario_B_indirect <- (
+  reported_cases_sim *
+    activity_rate *
+    sick_leave_probability *
+    sick_leave_sim *
+    daily_wage
+)
+
+# Keep direct costs unchanged
+scenario_B_total <- direct_cost_sim + scenario_B_indirect
+
+# Compare scenarios
+scenario_comparison <- data.frame(
+  Scenario = c("Estimated cases", "Reported cases"),
+  Mean_MEUR = c(
+    mean(scenario_A_total),
+    mean(scenario_B_total)
+  ) / 1e6,
+  Median_MEUR = c(
+    median(scenario_A_total),
+    median(scenario_B_total)
+  ) / 1e6,
+  Lower_95 = c(
+    quantile(scenario_A_total, 0.025),
+    quantile(scenario_B_total, 0.025)
+  ) / 1e6,
+  Upper_95 = c(
+    quantile(scenario_A_total, 0.975),
+    quantile(scenario_B_total, 0.975)
+  ) / 1e6
+)
+
+# Display results
+cat("\nSENSITIVITY ANALYSIS — CASE INDICATOR\n")
+print(round(
+  scenario_comparison[, -1],
+  3
+))
+
+cat("\nScenario names:\n")
+print(scenario_comparison$Scenario)
+
+cat(
+  "\nDifference in mean total cost:",
+  round(
+    (mean(scenario_A_total) - mean(scenario_B_total)) / 1e6,
+    3
+  ),
+  "million EUR\n"
+)
+
+
+# 10. VISUALIZATION — MONTE CARLO DISTRIBUTIONS ------------
+
+library(ggplot2)
+
+# Prepare simulation results for visualization
+plot_data <- data.frame(
+  total_cost_million = c(
+    scenario_A_total,
+    scenario_B_total
+  ) / 1e6,
+  
+  scenario = factor(
+    rep(
+      c("Estimated cases", "Reported cases"),
+      each = n_iter
+    ),
+    levels = c("Estimated cases", "Reported cases")
+  )
+)
+
+# Plot probability density distributions
+mc_density_plot <- ggplot(
+  plot_data,
+  aes(
+    x = total_cost_million,
+    fill = scenario,
+    color = scenario
+  )
+) +
+  geom_density(
+    alpha = 0.30,
+    linewidth = 1
+  ) +
+  geom_vline(
+    xintercept = mean(scenario_A_total) / 1e6,
+    color = "#2563EB",
+    linetype = "dashed",
+    linewidth = 0.8
+  ) +
+  geom_vline(
+    xintercept = mean(scenario_B_total) / 1e6,
+    color = "#DC2626",
+    linetype = "dashed",
+    linewidth = 0.8
+  ) +
+  scale_fill_manual(
+    values = c(
+      "Estimated cases" = "#2563EB",
+      "Reported cases" = "#DC2626"
+    )
+  ) +
+  scale_color_manual(
+    values = c(
+      "Estimated cases" = "#2563EB",
+      "Reported cases" = "#DC2626"
+    )
+  ) +
+  labs(
+    title = "Monte Carlo Simulation — Economic Burden",
+    subtitle = "Comparison of synthetic epidemiological scenarios",
+    x = "Total economic cost (million EUR)",
+    y = "Probability density",
+    fill = "Scenario",
+    color = "Scenario",
+    caption = "10,000 iterations per scenario | Synthetic data only"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = "bottom"
+  )
+
+# Display figure
+print(mc_density_plot)
+
+# Export to the GitHub project
+project_dir <- path.expand(
+  "~/Documents/dengue-medico-economic-analysis"
+)
+
+output_dir <- file.path(
+  project_dir,
+  "outputs",
+  "figures"
+)
+
+dir.create(
+  output_dir,
+  recursive = TRUE,
+  showWarnings = FALSE
+)
+
+ggsave(
+  filename = file.path(
+    output_dir,
+    "monte_carlo_synthetic_distributions.png"
+  ),
+  plot = mc_density_plot,
+  width = 10,
+  height = 6,
+  dpi = 300
+)
+
+cat("\nMonte Carlo density plot exported successfully\n")
+
+
+# 11. COST BREAKDOWN — MAIN SCENARIO -------------------------
+
+# Calculate mean cost for each component
+cost_breakdown <- data.frame(
+  component = c(
+    "Ambulatory care",
+    "Laboratory testing",
+    "Emergency care",
+    "Hospitalizations",
+    "Medications",
+    "Productivity losses"
+  ),
+  
+  mean_cost = c(
+    mean(ambulatory_cost_sim),
+    mean(laboratory_cost_sim),
+    mean(emergency_cost_sim),
+    mean(hospitalization_cost_sim),
+    mean(medication_cost_sim),
+    mean(indirect_cost_sim)
+  ),
+  
+  cost_type = c(
+    rep("Direct costs", 5),
+    "Indirect costs"
+  )
+)
+
+# Convert amounts to millions of euros
+cost_breakdown$mean_cost_million <- (
+  cost_breakdown$mean_cost / 1e6
+)
+
+# Check that components sum to the total cost
+stopifnot(
+  isTRUE(all.equal(
+    sum(cost_breakdown$mean_cost),
+    mean(scenario_A_total)
+  ))
+)
+
+# Create the cost breakdown plot
+cost_breakdown_plot <- ggplot(
+  cost_breakdown,
+  aes(
+    x = reorder(component, mean_cost_million),
+    y = mean_cost_million,
+    fill = cost_type
+  )
+) +
+  geom_col(width = 0.7) +
+  geom_text(
+    aes(
+      label = sprintf("%.3f M EUR", mean_cost_million)
+    ),
+    hjust = -0.1,
+    size = 3.5
+  ) +
+  coord_flip() +
+  scale_fill_manual(
+    values = c(
+      "Direct costs" = "#2563EB",
+      "Indirect costs" = "#E11D48"
+    )
+  ) +
+  scale_y_continuous(
+    expand = expansion(mult = c(0, 0.22))
+  ) +
+  labs(
+    title = "Economic Burden by Cost Component",
+    subtitle = "Main Monte Carlo scenario — estimated excess cases",
+    x = NULL,
+    y = "Mean simulated cost (million EUR)",
+    fill = "Cost category",
+    caption = "Synthetic data only | 10,000 iterations"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = "bottom"
+  )
+
+# Display the figure
+print(cost_breakdown_plot)
+
+# Export figure
+ggsave(
+  filename = file.path(
+    output_dir,
+    "monte_carlo_cost_breakdown_synthetic.png"
+  ),
+  plot = cost_breakdown_plot,
+  width = 11,
+  height = 6,
+  dpi = 300
+)
+
+cat("\nCost breakdown plot exported successfully\n")
+
+
+# 12. SENSITIVITY ANALYSIS — DAILY WAGE ----------------------
+
+# Illustrative daily wage scenarios (EUR/day)
+wage_scenarios <- c(
+  "Low wage" = 45,
+  "Baseline wage" = 60,
+  "High wage" = 115
+)
+
+# Function to calculate economic costs for a given wage
+calculate_wage_scenario <- function(wage) {
+  
+  # Productivity losses
+  indirect_cost <- (
+    excess_cases_sim *
+      activity_rate *
+      sick_leave_probability *
+      sick_leave_sim *
+      wage
+  )
+  
+  # Total costs: direct costs remain unchanged
+  total_cost <- direct_cost_sim + indirect_cost
+  
+  return(data.frame(
+    wage = wage,
+    mean_total = mean(total_cost),
+    median_total = median(total_cost),
+    lower_95 = unname(quantile(total_cost, 0.025)),
+    upper_95 = unname(quantile(total_cost, 0.975)),
+    mean_indirect = mean(indirect_cost)
+  ))
+}
+
+# Run all wage scenarios
+wage_results <- do.call(
+  rbind,
+  lapply(wage_scenarios, calculate_wage_scenario)
+)
+
+# Add scenario names
+wage_results$scenario <- names(wage_scenarios)
+
+# Convert results to million EUR
+wage_results$mean_total_MEUR <- wage_results$mean_total / 1e6
+wage_results$lower_95_MEUR <- wage_results$lower_95 / 1e6
+wage_results$upper_95_MEUR <- wage_results$upper_95 / 1e6
+
+# Calculate variation relative to the baseline
+baseline_mean <- wage_results$mean_total[
+  wage_results$scenario == "Baseline wage"
+]
+
+wage_results$variation_pct <- (
+  wage_results$mean_total / baseline_mean - 1
+) * 100
+
+# Verify that the baseline reproduces the main scenario
+stopifnot(
+  isTRUE(all.equal(
+    baseline_mean,
+    mean(scenario_A_total)
+  ))
+)
+
+# Display results
+cat("\nSENSITIVITY ANALYSIS — DAILY WAGE\n")
+
+print(
+  data.frame(
+    Scenario = wage_results$scenario,
+    Daily_Wage = wage_results$wage,
+    Mean_MEUR = round(wage_results$mean_total_MEUR, 3),
+    Lower_95 = round(wage_results$lower_95_MEUR, 3),
+    Upper_95 = round(wage_results$upper_95_MEUR, 3),
+    Variation_pct = round(wage_results$variation_pct, 2)
+  ),
+  row.names = FALSE
+)
+
+cat("\nWage sensitivity analysis completed successfully\n")
+
+
+# 13. SENSITIVITY ANALYSIS — SICK LEAVE DURATION ------------
+
+# Illustrative duration adjustment scenarios
+duration_scenarios <- c(
+  "Shorter sick leave" = 0.80,
+  "Baseline duration" = 1.00,
+  "Longer sick leave" = 1.20
+)
+
+# Function to calculate costs for each duration scenario
+calculate_duration_scenario <- function(multiplier) {
+  
+  # Adjust sick leave duration
+  adjusted_duration <- sick_leave_sim * multiplier
+  
+  # Recalculate productivity losses
+  indirect_cost <- (
+    excess_cases_sim *
+      activity_rate *
+      sick_leave_probability *
+      adjusted_duration *
+      daily_wage
+  )
+  
+  # Direct costs remain unchanged
+  total_cost <- direct_cost_sim + indirect_cost
+  
+  data.frame(
+    multiplier = multiplier,
+    mean_total = mean(total_cost),
+    median_total = median(total_cost),
+    lower_95 = unname(quantile(total_cost, 0.025)),
+    upper_95 = unname(quantile(total_cost, 0.975))
+  )
+}
+
+# Run the three scenarios
+duration_results <- do.call(
+  rbind,
+  lapply(
+    duration_scenarios,
+    calculate_duration_scenario
+  )
+)
+
+duration_results$scenario <- names(duration_scenarios)
+
+# Reference scenario
+duration_baseline <- duration_results$mean_total[
+  duration_results$scenario == "Baseline duration"
+]
+
+# Verify that the baseline reproduces the main scenario
+stopifnot(
+  isTRUE(all.equal(
+    duration_baseline,
+    mean(scenario_A_total)
+  ))
+)
+
+# Create the results table
+duration_summary <- data.frame(
+  Scenario = duration_results$scenario,
+  Mean_MEUR = round(duration_results$mean_total / 1e6, 3),
+  Lower_95 = round(duration_results$lower_95 / 1e6, 3),
+  Upper_95 = round(duration_results$upper_95 / 1e6, 3),
+  Variation_pct = round(
+    (duration_results$mean_total / duration_baseline - 1) * 100,
+    2
+  )
+)
+
+# Display results
+cat("\nSENSITIVITY ANALYSIS — SICK LEAVE DURATION\n")
+
+print(duration_summary, row.names = FALSE)
+
+cat("\nDuration sensitivity analysis completed successfully\n")
+
+
+# 14. SENSITIVITY ANALYSIS — TORNADO PLOT --------------------
+
+# Combine wage and sick leave sensitivity results
+sensitivity_plot_data <- data.frame(
+  scenario = c(
+    "Low wage (45 EUR/day)",
+    "High wage (115 EUR/day)",
+    "Shorter sick leave (-20%)",
+    "Longer sick leave (+20%)"
+  ),
+  
+  parameter = c(
+    "Daily wage",
+    "Daily wage",
+    "Sick leave duration",
+    "Sick leave duration"
+  ),
+  
+  variation_pct = c(
+    wage_results$variation_pct[
+      wage_results$scenario == "Low wage"
+    ],
+    wage_results$variation_pct[
+      wage_results$scenario == "High wage"
+    ],
+    duration_results$mean_total[
+      duration_results$scenario == "Shorter sick leave"
+    ] / duration_baseline * 100 - 100,
+    duration_results$mean_total[
+      duration_results$scenario == "Longer sick leave"
+    ] / duration_baseline * 100 - 100
+  )
+)
+
+# Create sensitivity diagram
+tornado_plot <- ggplot(
+  sensitivity_plot_data,
+  aes(
+    x = variation_pct,
+    y = reorder(scenario, variation_pct),
+    fill = parameter
+  )
+) +
+  geom_vline(
+    xintercept = 0,
+    linetype = "dashed",
+    color = "gray40"
+  ) +
+  geom_col(width = 0.65) +
+  geom_text(
+    aes(
+      label = sprintf("%+.2f%%", variation_pct)
+    ),
+    hjust = ifelse(
+      sensitivity_plot_data$variation_pct >= 0,
+      -0.15,
+      1.15
+    ),
+    size = 4
+  ) +
+  scale_fill_manual(
+    values = c(
+      "Daily wage" = "#2563EB",
+      "Sick leave duration" = "#E11D48"
+    )
+  ) +
+  scale_x_continuous(
+    limits = c(-7, 18),
+    breaks = seq(-5, 15, by = 5),
+    labels = function(x) paste0(x, "%")
+  ) +
+  labs(
+    title = "One-Way Sensitivity Analysis",
+    subtitle = "Impact of economic parameters on total simulated cost",
+    x = "Variation from baseline total cost (%)",
+    y = NULL,
+    fill = "Parameter",
+    caption = "Synthetic assumptions | Baseline = 7.700 million EUR"
+  ) +
+  theme_minimal(base_size = 13) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = "bottom"
+  )
+
+# Display plot
+print(tornado_plot)
+
+# Export figure
+ggsave(
+  filename = file.path(
+    output_dir,
+    "monte_carlo_tornado_synthetic.png"
+  ),
+  plot = tornado_plot,
+  width = 11,
+  height = 6,
+  dpi = 300
+)
+
+cat("\nSensitivity tornado plot exported successfully\n")
+
+
+# 15. INPUT VARIABLE DISTRIBUTIONS --------------------------
+
+# Prepare all simulated input variables
+input_distributions <- list(
+  
+  "Estimated excess cases" = excess_cases_sim,
+  
+  "Reported excess cases" = reported_cases_sim,
+  
+  "Ambulatory cost (million EUR)" =
+    ambulatory_cost_sim / 1e6,
+  
+  "Laboratory cost (thousand EUR)" =
+    laboratory_cost_sim / 1e3,
+  
+  "Emergency cost (thousand EUR)" =
+    emergency_cost_sim / 1e3,
+  
+  "Number of hospitalizations" =
+    hospitalizations_sim,
+  
+  "Hospital length of stay (days)" =
+    los_sim,
+  
+  "OTC proportion (%)" =
+    otc_share_sim * 100,
+  
+  "Sick leave duration (days)" =
+    sick_leave_sim
+)
+
+# Transform into a long data frame
+distribution_data <- do.call(
+  rbind,
+  lapply(
+    names(input_distributions),
+    function(variable_name) {
+      data.frame(
+        variable = variable_name,
+        value = input_distributions[[variable_name]]
+      )
+    }
+  )
+)
+
+# Preserve the order of variables
+distribution_data$variable <- factor(
+  distribution_data$variable,
+  levels = names(input_distributions)
+)
+
+# Create histograms
+input_distribution_plot <- ggplot(
+  distribution_data,
+  aes(x = value)
+) +
+  geom_histogram(
+    bins = 35,
+    fill = "#2563EB",
+    color = "white",
+    alpha = 0.85
+  ) +
+  facet_wrap(
+    ~ variable,
+    scales = "free",
+    ncol = 3
+  ) +
+  labs(
+    title = "Monte Carlo — Input Variable Distributions",
+    subtitle = "10,000 iterations | Synthetic assumptions",
+    x = "Simulated value",
+    y = "Frequency",
+    caption = "Illustrative distributions — not observed Martinique data"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    strip.text = element_text(face = "bold"),
+    panel.spacing = grid::unit(1.2, "lines")
+  )
+
+# Display figure
+print(input_distribution_plot)
+
+# Export figure
+ggsave(
+  filename = file.path(
+    output_dir,
+    "monte_carlo_input_distributions.png"
+  ),
+  plot = input_distribution_plot,
+  width = 14,
+  height = 11,
+  dpi = 300
+)
+
+cat("\nInput distributions exported successfully\n")
+
+
+# 16. EXPORT MONTE CARLO RESULTS -----------------------------
+
+# Create the output folder
+tables_dir <- file.path(
+  project_dir,
+  "outputs",
+  "tables"
+)
+
+dir.create(
+  tables_dir,
+  recursive = TRUE,
+  showWarnings = FALSE
+)
+
+# Export scenario comparison results
+write.csv(
+  scenario_comparison,
+  file = file.path(
+    tables_dir,
+    "monte_carlo_scenario_comparison.csv"
+  ),
+  row.names = FALSE
+)
+
+# Export cost breakdown
+write.csv(
+  cost_breakdown,
+  file = file.path(
+    tables_dir,
+    "monte_carlo_cost_breakdown.csv"
+  ),
+  row.names = FALSE
+)
+
+# Combine sensitivity analyses
+sensitivity_summary <- rbind(
+  data.frame(
+    Parameter = "Daily wage",
+    Scenario = wage_results$scenario,
+    Mean_MEUR = wage_results$mean_total / 1e6,
+    Variation_pct = wage_results$variation_pct
+  ),
+  data.frame(
+    Parameter = "Sick leave duration",
+    Scenario = duration_summary$Scenario,
+    Mean_MEUR = duration_summary$Mean_MEUR,
+    Variation_pct = duration_summary$Variation_pct
+  )
+)
+
+# Export sensitivity results
+write.csv(
+  sensitivity_summary,
+  file = file.path(
+    tables_dir,
+    "monte_carlo_sensitivity_analysis.csv"
+  ),
+  row.names = FALSE
+)
+
+cat("\nMonte Carlo tables exported successfully\n")
+cat("Output directory:", tables_dir, "\n")
