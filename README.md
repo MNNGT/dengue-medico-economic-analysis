@@ -44,7 +44,7 @@ The project is organized around five complementary modules.
 | 01. Epidemiological Analysis | Epidemic curves, reference periods, excess cases and healthcare utilization | Planned |
 | 02. OpenDamir | Healthcare reimbursement processing and cost estimation methods | Available — synthetic demonstration |
 | 03. OpenMedic | Pharmaceutical reimbursement analysis and ATC classification | Available — synthetic demonstration |
-| 04. Laboratory Costs | Diagnostic testing activity, laboratory revenue and economic comparisons | Available — synthetic demonstration |
+| 04. Laboratory Costs | Diagnostic testing activity, laboratory revenue, local and outsourced testing | Available — two synthetic workflows |
 | 05. Monte Carlo Simulation | Probabilistic uncertainty and sensitivity analyses | Available — synthetic demonstration |
 
 The available modules demonstrate analytical methods adapted from previously developed research workflows.
@@ -158,16 +158,19 @@ The allocation coefficient and reimbursement amounts are illustrative and do not
 
 ---
 
-
 ## Laboratory Costs — Synthetic Diagnostic Testing Analysis
 
-This module demonstrates the analysis of dengue-related laboratory testing activity and associated revenue using synthetic data.
+This module presents two complementary analytical workflows inspired by laboratory data processing undertaken during my public health internship.
 
-Adapted from methodological work conducted during my public health internship, it reproduces key steps of laboratory data processing, economic analysis and scientific reporting.
+The first focuses on laboratory testing activity and associated revenue. The second examines local versus outsourced diagnostic testing, monthly trends, and data completeness.
 
-**All test volumes, financial amounts and tariff assumptions are synthetic or illustrative.**
+**All observations, test volumes, financial amounts, and laboratory activity scenarios are synthetic or illustrative.**
 
-### Analytical Workflow
+### Part A — Laboratory Testing and Revenue Analysis
+
+This workflow demonstrates the processing and economic analysis of dengue diagnostic testing activity, inspired by laboratory reporting data.
+
+#### Analytical Workflow
 
 The workflow includes:
 
@@ -181,7 +184,7 @@ The workflow includes:
 
 The demonstration contains **93 monthly test-category records**, representing **11,353 simulated examinations**.
 
-### Illustrative Results
+#### Illustrative Results
 
 | Study period | Average monthly tests | Average monthly revenue |
 |---|---:|---:|
@@ -195,7 +198,7 @@ The overall simulated laboratory revenue is approximately **EUR 299,678**.
 
 These results are not observed laboratory expenditures in Martinique. Laboratory revenue is not necessarily equivalent to health insurance reimbursements.
 
-### Visualizations
+#### Visualizations
 
 **Monthly diagnostic testing activity**
 
@@ -205,11 +208,11 @@ These results are not observed laboratory expenditures in Martinique. Laboratory
 
 ![Synthetic laboratory revenue](outputs/figures/laboratory_monthly_revenue_synthetic.png)
 
-### Code and Results
+#### Code and Results
 
 **R script**
 
-- [Complete laboratory analysis workflow](R/laboratory_costs_synthetic.R)
+- [Laboratory testing and revenue workflow](R/laboratory_costs_synthetic.R)
 
 **Output tables**
 
@@ -221,6 +224,94 @@ These results are not observed laboratory expenditures in Martinique. Laboratory
 - [Monthly laboratory revenue](outputs/tables/laboratory_monthly_revenue_synthetic.csv)
 
 The three intermediate synthetic laboratory datasets are generated automatically by the R script and excluded from version control.
+
+### Part B — CHU / Biomnis: Local vs Outsourced Laboratory Activity
+
+This complementary workflow demonstrates the analysis of diagnostic testing performed locally versus outsourced to an external laboratory.
+
+It is methodologically inspired by laboratory activity analyses involving the CHU of Martinique and Biomnis.
+
+The public implementation uses entirely synthetic observations and does not reproduce actual laboratory activity, patient information, or confidential reporting data.
+
+#### Analytical Workflow
+
+The workflow includes:
+
+- Generation of synthetic monthly testing data from June 2022 to November 2025.
+- Classification into four diagnostic categories: blood PCR, cerebrospinal fluid (CSF) PCR, NS1 antigen, and IgG serology.
+- Distinction between local and outsourced laboratory activity.
+- Monthly aggregation of diagnostic testing volumes.
+- Comparison of testing activity across three study periods.
+- Assessment of data completeness and missing observations.
+- Simulation of an illustrative interruption in outsourced testing activity.
+- Automated quality checks and reproducible graphical reporting.
+
+The demonstration covers **42 months**, with four diagnostic categories and two laboratory sources.
+
+The full synthetic dataset contains **336 source-level monthly records**.
+
+#### Handling Missing Laboratory Data
+
+The workflow explicitly models unavailable PCR observations between September and December 2022.
+
+Missing values are preserved as `NA` rather than being replaced with zero.
+
+This distinction prevents unavailable measurements from being incorrectly interpreted as an absence of diagnostic testing.
+
+The analysis also calculates data completeness indicators by diagnostic category, laboratory source, and study period.
+
+#### Local vs Outsourced Testing
+
+Laboratory activity is separated into two illustrative sources:
+
+- **Local laboratory:** diagnostic tests performed within the local laboratory setting.
+- **Outsourced laboratory:** diagnostic tests referred to an external laboratory.
+
+An artificial outsourcing interruption is introduced in November 2023 to demonstrate how operational disruptions may affect the distribution of testing activity.
+
+**This interruption is entirely fictional and must not be interpreted as a documented event involving Biomnis or the CHU of Martinique.**
+
+Comparisons between study periods use average monthly testing volumes to account for differences in observation duration and data availability.
+
+#### Scientific Visualization
+
+The workflow produces a combined two-panel figure:
+
+**Panel A — Monthly Diagnostic Testing Activity**
+
+Monthly trends for blood PCR, NS1 antigen, and IgG serology, with study-period shading, missing-data gaps, and an illustrative outsourcing interruption.
+
+**Panel B — Local vs Outsourced Laboratory Activity**
+
+Stacked bar charts comparing average monthly testing activity between local and outsourced laboratory sources across the three study periods.
+
+![Synthetic CHU Biomnis laboratory analysis](outputs/figures/laboratory_chu_biomnis_synthetic.png)
+
+*Two-panel visualization generated entirely from synthetic laboratory activity data.*
+
+#### Code and Results
+
+**R script**
+
+- [CHU / Biomnis synthetic laboratory workflow](R/laboratory_chu_biomnis_synthetic.R)
+
+**Output tables**
+
+- [Monthly diagnostic testing activity](outputs/tables/laboratory_chu_biomnis_monthly_synthetic.csv)
+- [Laboratory activity by period and source](outputs/tables/laboratory_chu_biomnis_period_synthetic.csv)
+- [Laboratory data completeness analysis](outputs/tables/laboratory_chu_biomnis_missingness_synthetic.csv)
+
+The synthetic source-level dataset is generated automatically and excluded from version control.
+
+#### Methodological Scope
+
+The two laboratory workflows illustrate complementary analytical questions.
+
+The first examines diagnostic testing volumes, theoretical tariffs, and simulated laboratory revenue.
+
+The second examines the organization of laboratory testing activity, differences between local and outsourced services, and the handling of incomplete observations.
+
+They are independent synthetic demonstrations and should not be interpreted as a combined estimate of laboratory costs or dengue-related healthcare expenditure in Martinique.
 
 ---
 
@@ -287,6 +378,7 @@ The simulation uses a fixed random seed and does not require confidential datase
 - Data cleaning, filtering, aggregation and transformation
 - Automated processing workflows
 - Data quality checks and validation
+- Handling of missing observations
 
 **Statistical and economic analysis**
 
@@ -294,13 +386,14 @@ The simulation uses a fixed random seed and does not require confidential datase
 - Healthcare expenditure analysis
 - Reference-period comparisons
 - Cost-of-illness methodology
+- Laboratory activity and revenue analysis
 - Probabilistic simulation
 - Uncertainty and sensitivity analyses
 - Illustrative geographic allocation methods
 
 **Reporting and visualization**
 
-- `ggplot2`
+- `ggplot2` and `patchwork`
 - R Markdown and reproducible reporting
 - Statistical tables and graphical outputs
 - CSV data exports
@@ -329,6 +422,8 @@ The available modules use synthetic data to demonstrate analytical workflows wit
 |---|---|
 | `R/opendamir_synthetic.R` | Synthetic healthcare reimbursement processing and method comparison |
 | `R/openmedic_analyse_synthetique.R` | Synthetic pharmaceutical reimbursement analysis |
+| `R/laboratory_costs_synthetic.R` | Laboratory testing volumes, revenue and economic comparisons |
+| `R/laboratory_chu_biomnis_synthetic.R` | Local versus outsourced testing, monthly activity and missing-data analysis |
 | `R/monte_carlo_synthetic.R` | Probabilistic cost simulation and sensitivity analysis |
 
 Random seeds are used to support reproducibility.
@@ -345,6 +440,8 @@ The publicly available demonstrations use artificially generated observations an
 
 The original internship research and this public portfolio are distinct.
 
+The CHU / Biomnis and laboratory revenue demonstrations do not contain original laboratory records.
+
 **Synthetic outputs must not be interpreted as observed healthcare expenditures, official epidemiological estimates, or validated estimates of the economic burden of dengue.**
 
 ---
@@ -354,7 +451,7 @@ The original internship research and this public portfolio are distinct.
 The next development stages include:
 
 - Implementing epidemiological surveillance analyses using simulated data.
-- Developing the laboratory diagnostic cost module.
+- Extending the laboratory diagnostic analysis workflows and methodological validation.
 - Improving the portability of existing R scripts.
 - Extending data validation and sensitivity analyses.
 - Strengthening documentation and reproducible reporting.
