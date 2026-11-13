@@ -1,0 +1,4 @@
+period,weeks_observed,total_emergency_visits_dengue,mean_weekly_emergency_visits,total_dengue_hospital_admissions,mean_weekly_hospital_admissions
+P1 - Baseline 2022-2023,47,346,7.361702127659575,81,1.7234042553191489
+P2 - Epidemic 2023-2024,47,2184,46.46808510638298,440,9.361702127659575
+P3 - Baseline 2025,31,181,5.838709677419355,51,1.6451612903225807

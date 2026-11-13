@@ -1,0 +1,41 @@
+year,disease,indicator,weeks_observed,yearly_total,weekly_mean,weekly_peak
+2018,Bronchiolitis,bronchio_cce,53,2297,43.339622641509436,115
+2018,COVID-19,covid_cce,53,944,17.81132075471698,32
+2018,Dengue (biological cases),dengue_cas_bio,53,528,9.962264150943396,23
+2018,Dengue (sentinel CCE),rms_estim,53,2751,51.905660377358494,87
+2018,Influenza,grippe_cce,53,3610,68.11320754716981,190
+2019,Bronchiolitis,bronchio_cce,52,2146,41.26923076923077,120
+2019,COVID-19,covid_cce,52,871,16.75,33
+2019,Dengue (biological cases),dengue_cas_bio,52,1027,19.75,47
+2019,Dengue (sentinel CCE),rms_estim,52,6013,115.63461538461539,254
+2019,Influenza,grippe_cce,52,3375,64.90384615384616,179
+2020,Bronchiolitis,bronchio_cce,52,2136,41.07692307692308,116
+2020,COVID-19,covid_cce,52,5802,111.57692307692308,263
+2020,Dengue (biological cases),dengue_cas_bio,52,602,11.576923076923077,26
+2020,Dengue (sentinel CCE),rms_estim,52,3235,62.21153846153846,130
+2020,Influenza,grippe_cce,52,3386,65.11538461538461,162
+2021,Bronchiolitis,bronchio_cce,52,2167,41.67307692307692,123
+2021,COVID-19,covid_cce,52,3154,60.65384615384615,284
+2021,Dengue (biological cases),dengue_cas_bio,52,799,15.365384615384615,42
+2021,Dengue (sentinel CCE),rms_estim,52,4410,84.8076923076923,222
+2021,Influenza,grippe_cce,52,3429,65.9423076923077,177
+2022,Bronchiolitis,bronchio_cce,52,2203,42.36538461538461,122
+2022,COVID-19,covid_cce,52,3610,69.42307692307692,294
+2022,Dengue (biological cases),dengue_cas_bio,52,531,10.211538461538462,18
+2022,Dengue (sentinel CCE),rms_estim,52,2702,51.96153846153846,83
+2022,Influenza,grippe_cce,52,4181,80.40384615384616,219
+2023,Bronchiolitis,bronchio_cce,52,2238,43.03846153846154,118
+2023,COVID-19,covid_cce,52,958,18.423076923076923,30
+2023,Dengue (biological cases),dengue_cas_bio,52,2727,52.44230769230769,189
+2023,Dengue (sentinel CCE),rms_estim,52,15313,294.4807692307692,945
+2023,Influenza,grippe_cce,52,3833,73.71153846153847,223
+2024,Bronchiolitis,bronchio_cce,53,2210,41.698113207547166,121
+2024,COVID-19,covid_cce,53,3030,57.16981132075472,153
+2024,Dengue (biological cases),dengue_cas_bio,53,1043,19.67924528301887,97
+2024,Dengue (sentinel CCE),rms_estim,53,6068,114.49056603773585,514
+2024,Influenza,grippe_cce,53,3425,64.62264150943396,165
+2025,Bronchiolitis,bronchio_cce,51,2011,39.431372549019606,120
+2025,COVID-19,covid_cce,51,987,19.352941176470587,33
+2025,Dengue (biological cases),dengue_cas_bio,51,452,8.862745098039216,17
+2025,Dengue (sentinel CCE),rms_estim,51,2464,48.31372549019608,95
+2025,Influenza,grippe_cce,51,3355,65.7843137254902,164

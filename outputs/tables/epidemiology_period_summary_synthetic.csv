@@ -1,0 +1,4 @@
+period,observed_weeks,sentinel_consultations,total_estimated_cce,mean_weekly_cce,peak_weekly_cce,peak_iso_week,biological_cases,dengue_emergency_visits,dengue_hospital_admissions
+P1 - Baseline 2022-2023,47,514,2542,54.08510638297872,89,2023_24,489,346,81
+P2 - Epidemic 2023-2024,47,3491,17913,381.1276595744681,945,2023_46,3144,2184,440
+P3 - Baseline 2025,31,285,1350,43.54838709677419,81,2025_24,266,181,51

@@ -1,0 +1,10 @@
+metric,value
+Weekly records (2018-2025),417
+Distinct ISO week identifiers,417
+Missing core dengue CCE observations,0
+P1 weeks,47
+P2 weeks,47
+P3 weeks,31
+P1/P2 matched weeks,47
+Smoothed endpoints with NA (per series),2
+Exploratory active-week threshold (%),25
