@@ -1,0 +1,7 @@
+period,test_type,average_monthly_tests,test_volume_change_pct,average_monthly_revenue_eur,revenue_change_pct
+Baseline 2025,NS1 antigen,73.14,4.11,1386.48,4.82
+Baseline 2025,PCR (RNA),91.43,2.73,3698.65,2.45
+Baseline 2025,Serology (IgG/IgM),45.57,-1.64,497.38,-0.79
+Epidemic 2023-2024,NS1 antigen,207.17,194.9,3927.3,196.9
+Epidemic 2023-2024,PCR (RNA),263.25,195.79,10758.77,198
+Epidemic 2023-2024,Serology (IgG/IgM),147.5,218.37,1596.22,218.39

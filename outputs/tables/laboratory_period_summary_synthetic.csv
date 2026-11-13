@@ -1,0 +1,4 @@
+period,months,total_tests,total_B_points,total_revenue_eur,average_monthly_tests,average_monthly_revenue_eur
+Baseline 2022-2023,12,2467,241450,65213.12,205.6,5434.43
+Baseline 2025,7,1471,144600,39077.59,210.1,5582.51
+Epidemic 2023-2024,12,7415,718670,195387.45,617.9,16282.29

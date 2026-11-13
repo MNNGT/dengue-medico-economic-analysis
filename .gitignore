@@ -1,3 +1,6 @@
 
 # Generated synthetic OpenDamir datasets
 /data/simulated/opendamir/
+
+# Generated synthetic laboratory datasets
+/data/simulated/laboratory/
