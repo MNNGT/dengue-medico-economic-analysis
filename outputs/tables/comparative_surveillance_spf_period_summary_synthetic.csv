@@ -1,0 +1,7 @@
+mode,period,observed_weeks,dengue_sentinel_cce,dengue_biological_cases,influenza_sentinel_cce,covid_sentinel_cce,bronchiolitis_sentinel_cce,dengue_sentinel_weekly_mean,dengue_biological_weekly_mean
+long,P1 - Reference,47,2542,489,4367,864,2179,54.08510638297872,10.404255319148936
+long,P2 - Epidemic scenario,47,17913,3144,3197,960,2063,381.12765957446805,66.89361702127661
+long,P3 - Reference,31,1350,266,1177,580,1115,43.54838709677419,8.580645161290322
+strict,P1 - Reference,36,1959,379,3900,673,1927,54.416666666666664,10.527777777777779
+strict,P2 - Epidemic scenario,36,17326,3035,2749,662,1840,481.2777777777777,84.30555555555557
+strict,P3 - Reference,31,1350,266,1177,580,1115,43.54838709677419,8.580645161290322

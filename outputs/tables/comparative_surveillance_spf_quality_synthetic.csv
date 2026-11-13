@@ -1,0 +1,16 @@
+check,value
+Input is synthetic weekly data from project,1
+Weekly records in source,417
+Weeks displayed (2022-2025),208
+Missing values in displayed raw measures,0
+Duplicate ISO dates,0
+Bio dengue components reconcile,1
+Long P1 weeks,47
+Long P2 weeks,47
+Long P3 weeks,31
+Strict P1 weeks,36
+Strict P2 weeks,36
+Strict P3 weeks,31
+Period modes,2
+Figures exported,6
+Summary tables exported,3

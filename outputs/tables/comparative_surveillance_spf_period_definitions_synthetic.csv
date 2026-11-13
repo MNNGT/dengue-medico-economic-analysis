@@ -1,0 +1,7 @@
+mode,period,start_date,end_date,display_end,observed_weeks
+long,P1 - Reference,2022-07-25,2023-06-12,2023-06-18,47
+long,P2 - Epidemic scenario,2023-07-24,2024-06-10,2024-06-16,47
+long,P3 - Reference,2025-04-28,2025-11-24,2025-11-30,31
+strict,P1 - Reference,2022-07-25,2023-03-31,2023-03-31,36
+strict,P2 - Epidemic scenario,2023-07-24,2024-03-31,2024-03-31,36
+strict,P3 - Reference,2025-04-28,2025-11-24,2025-11-30,31

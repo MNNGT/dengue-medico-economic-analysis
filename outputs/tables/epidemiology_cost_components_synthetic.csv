@@ -1,0 +1,7 @@
+component,classification,illustrative_eur,share_pct
+Ambulatory care,Direct,2620000,51.8
+Hospital stays,Direct,1190000,23.5
+Productivity losses,Indirect,740000,14.6
+Laboratory testing,Direct,410000,8.1
+Emergency care,Direct,83000,1.6
+Pharmaceuticals,Direct,19000,0.4
