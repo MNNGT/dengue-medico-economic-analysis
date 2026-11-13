@@ -1,0 +1,31 @@
+period,encounter,age_group,count,share_pct
+P1,Emergency visits,< 5,42,12.138728323699421
+P1,Emergency visits,5-14,33,9.53757225433526
+P1,Emergency visits,15-44,152,43.93063583815029
+P1,Emergency visits,45-64,77,22.254335260115607
+P1,Emergency visits,65+,42,12.138728323699421
+P1,Hospital admissions,< 5,7,8.641975308641975
+P1,Hospital admissions,5-14,6,7.407407407407407
+P1,Hospital admissions,15-44,25,30.864197530864196
+P1,Hospital admissions,45-64,23,28.395061728395063
+P1,Hospital admissions,65+,20,24.691358024691358
+P2,Emergency visits,< 5,267,12.225274725274724
+P2,Emergency visits,5-14,201,9.203296703296703
+P2,Emergency visits,15-44,981,44.917582417582416
+P2,Emergency visits,45-64,505,23.122710622710624
+P2,Emergency visits,65+,230,10.531135531135531
+P2,Hospital admissions,< 5,35,7.954545454545454
+P2,Hospital admissions,5-14,37,8.409090909090908
+P2,Hospital admissions,15-44,144,32.72727272727273
+P2,Hospital admissions,45-64,115,26.136363636363637
+P2,Hospital admissions,65+,109,24.772727272727273
+P3,Emergency visits,< 5,16,8.839779005524862
+P3,Emergency visits,5-14,18,9.94475138121547
+P3,Emergency visits,15-44,89,49.171270718232044
+P3,Emergency visits,45-64,43,23.756906077348066
+P3,Emergency visits,65+,15,8.287292817679559
+P3,Hospital admissions,< 5,1,1.9607843137254901
+P3,Hospital admissions,5-14,3,5.882352941176471
+P3,Hospital admissions,15-44,19,37.254901960784316
+P3,Hospital admissions,45-64,17,33.333333333333336
+P3,Hospital admissions,65+,11,21.568627450980394
