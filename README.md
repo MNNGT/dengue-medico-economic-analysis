@@ -1,4 +1,3 @@
-
 # Dengue Medico-Economic Analysis in Martinique
 
 ### Epidemiology | Health Economics | R Programming | Uncertainty Analysis
@@ -41,13 +40,98 @@ The project is organized around five complementary modules.
 
 | Module | Analytical Focus | Status |
 |---|---|---|
-| 01. Epidemiological Analysis | Epidemic curves, reference periods, excess cases and healthcare utilization | Planned |
+| 01. Epidemiological Analysis | Weekly dengue surveillance, study-period comparisons, exploratory excess CCE and healthcare utilization | Available — synthetic demonstration |
 | 02. OpenDamir | Healthcare reimbursement processing and cost estimation methods | Available — synthetic demonstration |
 | 03. OpenMedic | Pharmaceutical reimbursement analysis and ATC classification | Available — synthetic demonstration |
 | 04. Laboratory Costs | Diagnostic testing activity, laboratory revenue, local and outsourced testing | Available — two synthetic workflows |
 | 05. Monte Carlo Simulation | Probabilistic uncertainty and sensitivity analyses | Available — synthetic demonstration |
 
-The available modules demonstrate analytical methods adapted from previously developed research workflows.
+All five modules are available as independent synthetic demonstrations of analytical methods adapted from previously developed research workflows. They are not yet an integrated or validated economic model.
+
+---
+
+## Epidemiological Analysis — Synthetic Dengue Surveillance
+
+This module demonstrates reproducible weekly epidemiological surveillance analyses using **entirely synthetic data**. It adapts selected methods from my research on dengue in Martinique while keeping original public-health surveillance datasets and findings out of the public repository.
+
+The simulated series spans **417 ISO-week observations from 2018 to 2025**. Calendar dates identify illustrative study windows and do not represent observed outbreak timing or severity.
+
+### Analytical Workflow
+
+The R pipeline includes:
+
+- Generating fictional weekly sentinel consultation counts and illustrative extrapolated clinically suspected dengue cases (**CCE**).
+- Constructing exact ISO-week calendars and classifying three study periods.
+- Identifying the maximum simulated weekly CCE count within the epidemic-period scenario.
+- Comparing study periods on a relative-week scale.
+- Computing an illustrative week-matched **P2 − P1** difference in estimated CCE.
+- Generating separate fictional dengue biological-case, influenza, bronchiolitis and COVID-19 indicators.
+- Applying centered three-week moving averages and per-series min–max normalization for exploratory comparison of temporal patterns.
+- Summarizing exploratory active weeks using a threshold of 25% of each normalized series' own range.
+- Comparing fictional dengue-related emergency-department visits and hospital admissions.
+- Exporting quality checks, analytical tables and publication-ready figures.
+
+### Study Periods
+
+| Period | ISO-week window | Duration | Role in the demonstration |
+|---|---|---:|---|
+| P1 | 2022 W30 – 2023 W24 | 47 weeks | Baseline scenario |
+| P2 | 2023 W30 – 2024 W24 | 47 weeks | Epidemic scenario |
+| P3 | 2025 W18 – W48 | 31 weeks | Additional baseline scenario |
+
+**P3 is shorter than P1 and P2.** Its raw cumulative counts should not be directly compared with 47-week totals without accounting for the difference in observation duration.
+
+### Illustrative Results
+
+| Indicator | Synthetic result |
+|---|---:|
+| Weekly observations, 2018–2025 | 417 |
+| Maximum weekly CCE in P2 | 945 |
+| ISO week of the simulated P2 peak | 2023 W46 |
+| Matched weeks in P1/P2 comparison | 47 |
+| Net simulated difference, P2 − P1 | 15,371 CCE |
+
+The **15,371 CCE** value is an arithmetic difference between two simulated 47-week series. It is **not** an official estimate of excess dengue cases, a causal effect, or a validated estimate of disease burden in Martinique.
+
+Biologically confirmed/probable cases and extrapolated sentinel CCE are treated as **distinct indicators**; comparisons of normalized trajectories do not imply equivalent detection methods or comparable absolute case counts.
+
+The 25% activity rule is an **exploratory descriptive threshold**, not an official epidemic-alert threshold. The generated dengue, influenza, bronchiolitis and COVID-19 patterns are fictional.
+
+### Visualizations
+
+**Weekly dengue CCE timeline with highlighted study periods and simulated peak**
+
+![Synthetic dengue weekly timeline](outputs/figures/epidemiology_dengue_timeline_synthetic.png)
+
+**Comparison of study periods using relative weeks**
+
+![Synthetic dengue period comparison](outputs/figures/epidemiology_relative_weeks_synthetic.png)
+
+**Additional figures**
+
+- [Comparative disease dynamics — two dengue indicators, influenza, bronchiolitis and COVID-19](outputs/figures/epidemiology_disease_dynamics_synthetic.png)
+- [Relative epidemic-intensity heatmap](outputs/figures/epidemiology_intensity_heatmap_synthetic.png)
+- [Exploratory active weeks by period and disease](outputs/figures/epidemiology_active_weeks_synthetic.png)
+- [Illustrative matched-week excess CCE comparison](outputs/figures/epidemiology_excess_cce_synthetic.png)
+
+### Code and Results
+
+**R script**
+
+- [Complete synthetic epidemiological analysis](R/epidemiological_analysis_synthetic.R)
+
+**Output tables**
+
+- [Summary of the three study periods](outputs/tables/epidemiology_period_summary_synthetic.csv)
+- [Week-matched P1/P2 CCE differences](outputs/tables/epidemiology_weekly_excess_synthetic.csv)
+- [Illustrative excess CCE summary](outputs/tables/epidemiology_excess_summary_synthetic.csv)
+- [Relative-week surveillance indicators](outputs/tables/epidemiology_relative_weeks_synthetic.csv)
+- [Annual disease indicators](outputs/tables/epidemiology_annual_disease_summary_synthetic.csv)
+- [Exploratory active-week analysis](outputs/tables/epidemiology_active_weeks_synthetic.csv)
+- [Synthetic healthcare utilization indicators](outputs/tables/epidemiology_healthcare_utilization_synthetic.csv)
+- [Data-quality summary](outputs/tables/epidemiology_data_quality_synthetic.csv)
+
+The underlying synthetic weekly surveillance dataset is regenerated by the R script and excluded from version control through `.gitignore`.
 
 ---
 
@@ -420,6 +504,7 @@ The available modules use synthetic data to demonstrate analytical workflows wit
 
 | Script | Purpose |
 |---|---|
+| `R/epidemiological_analysis_synthetic.R` | Synthetic epidemiological surveillance, study-period comparisons, relative dynamics and illustrative excess cases |
 | `R/opendamir_synthetic.R` | Synthetic healthcare reimbursement processing and method comparison |
 | `R/openmedic_analyse_synthetique.R` | Synthetic pharmaceutical reimbursement analysis |
 | `R/laboratory_costs_synthetic.R` | Laboratory testing volumes, revenue and economic comparisons |
@@ -450,7 +535,7 @@ The CHU / Biomnis and laboratory revenue demonstrations do not contain original 
 
 The next development stages include:
 
-- Implementing epidemiological surveillance analyses using simulated data.
+- Refining synthetic epidemiological comparisons, reference-period assumptions and sensitivity analyses.
 - Extending the laboratory diagnostic analysis workflows and methodological validation.
 - Improving the portability of existing R scripts.
 - Extending data validation and sensitivity analyses.
