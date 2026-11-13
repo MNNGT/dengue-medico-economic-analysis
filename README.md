@@ -41,13 +41,13 @@ The project is organized around five complementary modules.
 
 | Module | Analytical Focus | Status |
 |---|---|---|
-| 01. Epidemiological Analysis | Weekly dengue surveillance, comparative disease dynamics, age-stratified care, exploratory excess CCE and cost reporting | Available — three synthetic workflows |
+| 01. Epidemiological Analysis | Weekly dengue surveillance, comparative disease dynamics, age-stratified care, exploratory excess CCE and cost reporting | Available — four synthetic workflows |
 | 02. OpenDamir | Healthcare reimbursement processing and cost estimation methods | Available — synthetic demonstration |
 | 03. OpenMedic | Pharmaceutical reimbursement analysis and ATC classification | Available — synthetic demonstration |
 | 04. Laboratory Costs | Diagnostic testing activity, laboratory revenue, local and outsourced testing | Available — two synthetic workflows |
 | 05. Monte Carlo Simulation | Probabilistic uncertainty and sensitivity analyses | Available — synthetic demonstration |
 
-All five modules are available as synthetic demonstrations of analytical methods adapted from previously developed research workflows. Epidemiological Analysis comprises one core workflow and two complementary workflows; Laboratory Costs comprises two workflows. The modules are not yet an integrated or validated economic model.
+All five modules are available as synthetic demonstrations of analytical methods adapted from previously developed research workflows. Epidemiological Analysis comprises one core workflow and three complementary workflows; Laboratory Costs comprises two workflows. The modules are not yet an integrated or validated economic model.
 
 ---
 
@@ -242,7 +242,68 @@ The fictional cost-component breakdown includes ambulatory care, hospital stays,
 - [Reconciliation and validation checks](outputs/tables/epidemiology_age_care_validation_synthetic.csv)
 - [Fictional direct and indirect cost components](outputs/tables/epidemiology_cost_components_synthetic.csv)
 
-**Reproducibility note:** Both supplements require the synthetic weekly input created by `R/epidemiological_analysis_synthetic.R`. Run the core script first; neither supplement reads the original Excel files or other restricted partner data.
+**Reproducibility note:** The epidemiological supplements require the synthetic weekly input created by `R/epidemiological_analysis_synthetic.R`. Run the core script first; no original Excel files or restricted partner data are used.
+
+### Supplement C — Case Counts, Age Distributions and Hospitalization Indicators
+
+This supplementary workflow provides an integrated overview of dengue-related case counts and healthcare utilization across three study periods, based on **entirely synthetic data**. It adapts methods from an epidemiological period-summary script developed during my public health internship, without using the original surveillance spreadsheet.
+
+It complements the core weekly surveillance workflow and the age-stratified care supplement by bringing together period totals, differences between periods, age-specific utilization summaries and ratios calculated with explicitly different denominators.
+
+#### Analytical Methods
+
+- Aggregate fictional sentinel consultations, estimated clinically suspected dengue cases (**CCE**), biologically confirmed cases, probable cases, emergency-department visits and hospital admissions for P1, P2 and P3.
+- Calculate **P2 − P1** and **P3 − P1** differences in raw totals.
+- Compare **weekly averages** and their differences to account descriptively for P3 being shorter than P1/P2.
+- Provide an additional illustrative duration-adjusted P3 comparison against the P1 weekly mean, without controlling for seasonality or other confounders.
+- Allocate synthetic emergency visits and hospital admissions to five age groups using fixed random seeds and fictional multinomial probabilities.
+- Reconcile each age-specific sum with its source event total and perform automated quality checks.
+- Compute three descriptive indicators: hospital admissions per 100 estimated CCE, per 100 confirmed cases and per 100 emergency visits.
+- Export four figures and five CSV summaries.
+
+#### Study Periods and Illustrative Results
+
+| Indicator | Synthetic result |
+|---|---:|
+| P1 baseline duration | 47 ISO weeks |
+| P2 epidemic-scenario duration | 47 ISO weeks |
+| P3 additional comparison duration | 31 ISO weeks |
+| Estimated dengue CCE in P2 | 17,913 |
+| Emergency-department visits in P2 | 2,184 |
+| Hospital admissions in P2 | 440 |
+| Age groups | 5 |
+
+The P2 emergency-visit and hospital-admission totals agree with the synthetic care/cost supplement. The age allocation is fictional; it does not describe observed demographic distributions in Martinique.
+
+**Interpretation:** Differences between periods are descriptive comparisons of synthetic observations, not causal or seasonal-adjusted excess-burden estimates. Admissions divided by CCE, confirmed cases or emergency visits are **aggregate ratios**, not patient-level hospitalization risks; their numerators and denominators do not necessarily represent the same individuals.
+
+#### Visualizations
+
+**Synthetic case counts and healthcare encounters by period**
+
+![Synthetic dengue case and care counts by period](outputs/figures/epidemiology_case_period_counts_synthetic.png)
+
+**Additional figures**
+
+- [Age distribution of emergency visits and hospital admissions](outputs/figures/epidemiology_case_age_distribution_synthetic.png)
+- [Differences in average weekly counts between study periods](outputs/figures/epidemiology_case_weekly_differences_synthetic.png)
+- [Descriptive hospitalization ratios with alternative denominators](outputs/figures/epidemiology_case_hospitalization_proxies_synthetic.png)
+
+#### Code and Results
+
+**R script**
+
+- [Period case counts, age distributions and hospitalization ratios](R/epidemiology_case_counts_synthetic.R)
+
+**Output tables**
+
+- [Summary of case counts and care utilization by period](outputs/tables/epidemiology_case_period_summary_synthetic.csv)
+- [Absolute and weekly differences between study periods](outputs/tables/epidemiology_case_period_differences_synthetic.csv)
+- [Age distribution of synthetic healthcare encounters](outputs/tables/epidemiology_case_age_by_period_synthetic.csv)
+- [Hospitalization ratios and denominator comparison](outputs/tables/epidemiology_case_hospitalization_proxies_synthetic.csv)
+- [Data quality and reconciliation checks](outputs/tables/epidemiology_case_quality_synthetic.csv)
+
+**Reproducibility note:** Run `R/epidemiological_analysis_synthetic.R` before this supplement. The intermediate weekly surveillance file is generated locally and excluded from Git. No original Santé publique France or partner observations are accessed.
 
 ---
 
@@ -576,14 +637,16 @@ The simulation uses a fixed random seed and does not require confidential datase
 - Handling of missing observations
 - ISO-week alignment and calendar validation
 - Age-stratified allocation and consistency checks
+- Period-level aggregation and age-specific reconciliation checks
 
 **Statistical and economic analysis**
 
 - Descriptive statistics and epidemiology
 - Healthcare expenditure analysis
-- Reference-period comparisons and alternative analysis windows
+- Reference-period comparisons, duration-standardized differences and alternative analysis windows
 - Three-week moving averages and independent min–max normalization
 - Comparative infectious-disease surveillance
+- Descriptive hospitalization ratios with explicit denominators
 - Cost-of-illness methodology
 - Laboratory activity and revenue analysis
 - Probabilistic simulation
@@ -622,6 +685,7 @@ The available modules use synthetic data to demonstrate analytical workflows wit
 | `R/epidemiological_analysis_synthetic.R` | Synthetic epidemiological surveillance, study-period comparisons, relative dynamics and illustrative excess cases |
 | `R/comparative_surveillance_spf_synthetic.R` | Comparative four-disease surveillance, dual dengue indicators, long and strict analysis windows |
 | `R/epidemiology_comparative_care_costs_synthetic.R` | Age-stratified emergency care and hospital admissions, comparative disease reporting and standalone fictional cost components |
+| `R/epidemiology_case_counts_synthetic.R` | Period-level dengue case summaries, absolute and weekly differences, age distributions, and descriptive hospitalization ratios |
 | `R/opendamir_synthetic.R` | Synthetic healthcare reimbursement processing and method comparison |
 | `R/openmedic_analyse_synthetique.R` | Synthetic pharmaceutical reimbursement analysis |
 | `R/laboratory_costs_synthetic.R` | Laboratory testing volumes, revenue and economic comparisons |
@@ -638,9 +702,10 @@ From the repository root in RStudio, after installing the packages required by e
 source("R/epidemiological_analysis_synthetic.R")
 source("R/comparative_surveillance_spf_synthetic.R")
 source("R/epidemiology_comparative_care_costs_synthetic.R")
+source("R/epidemiology_case_counts_synthetic.R")
 ```
 
-The first script creates `data/simulated/epidemiology/weekly_surveillance_synthetic.csv`; the two supplements read this locally generated file and export their results to `outputs/figures/` and `outputs/tables/`. The intermediate weekly dataset is excluded by `.gitignore`.
+The first script creates `data/simulated/epidemiology/weekly_surveillance_synthetic.csv`; the three supplements read this locally generated file and export their results to `outputs/figures/` and `outputs/tables/`. The intermediate weekly dataset is excluded by `.gitignore`.
 
 **Current limitation:** Some scripts still use local file paths, including the OpenDamir project directory. These paths must be adapted to the user's environment. A future update will improve portability through project-relative paths.
 
@@ -664,7 +729,7 @@ The CHU / Biomnis and laboratory revenue demonstrations do not contain original 
 
 The next development stages include:
 
-- Auditing the three epidemiological workflows for portability, documentation, reproducibility and methodological consistency.
+- Auditing the four epidemiological workflows for portability, documentation, reproducibility and methodological consistency.
 - Extending the laboratory diagnostic analysis workflows and methodological validation.
 - Improving the portability of existing R scripts.
 - Extending data validation and sensitivity analyses.
