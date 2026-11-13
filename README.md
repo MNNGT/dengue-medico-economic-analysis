@@ -44,7 +44,7 @@ The project is organized around five complementary modules.
 | 01. Epidemiological Analysis | Epidemic curves, reference periods, excess cases and healthcare utilization | Planned |
 | 02. OpenDamir | Healthcare reimbursement processing and cost estimation methods | Available — synthetic demonstration |
 | 03. OpenMedic | Pharmaceutical reimbursement analysis and ATC classification | Available — synthetic demonstration |
-| 04. Laboratory Costs | Diagnostic testing activity and expenditure | Planned |
+| 04. Laboratory Costs | Diagnostic testing activity, laboratory revenue and economic comparisons | Available — synthetic demonstration |
 | 05. Monte Carlo Simulation | Probabilistic uncertainty and sensitivity analyses | Available — synthetic demonstration |
 
 The available modules demonstrate analytical methods adapted from previously developed research workflows.
@@ -155,6 +155,72 @@ The allocation coefficient and reimbursement amounts are illustrative and do not
 ### Code
 
 - [OpenMedic synthetic analysis](R/openmedic_analyse_synthetique.R)
+
+---
+
+
+## Laboratory Costs — Synthetic Diagnostic Testing Analysis
+
+This module demonstrates the analysis of dengue-related laboratory testing activity and associated revenue using synthetic data.
+
+Adapted from methodological work conducted during my public health internship, it reproduces key steps of laboratory data processing, economic analysis and scientific reporting.
+
+**All test volumes, financial amounts and tariff assumptions are synthetic or illustrative.**
+
+### Analytical Workflow
+
+The workflow includes:
+
+- Generation and consolidation of three synthetic laboratory datasets covering 2022–2025.
+- Classification of diagnostic tests into PCR (RNA), NS1 antigen and serology (IgG/IgM).
+- Monthly aggregation of test volumes and laboratory revenue.
+- Calculation of theoretical revenue using illustrative B-point values.
+- Quality checks comparing simulated and theoretical revenue.
+- Comparisons across baseline and epidemic-period scenarios.
+- Adjustment for differences in study-period duration using monthly averages.
+
+The demonstration contains **93 monthly test-category records**, representing **11,353 simulated examinations**.
+
+### Illustrative Results
+
+| Study period | Average monthly tests | Average monthly revenue |
+|---|---:|---:|
+| Baseline 2022–2023 | 206 | EUR 5,434 |
+| Epidemic 2023–2024 | 618 | EUR 16,282 |
+| Baseline 2025 | 210 | EUR 5,583 |
+
+In this synthetic scenario, testing activity is approximately three times higher during the epidemic period, reflecting the assumptions used in data generation.
+
+The overall simulated laboratory revenue is approximately **EUR 299,678**.
+
+These results are not observed laboratory expenditures in Martinique. Laboratory revenue is not necessarily equivalent to health insurance reimbursements.
+
+### Visualizations
+
+**Monthly diagnostic testing activity**
+
+![Synthetic laboratory testing volumes](outputs/figures/laboratory_monthly_volumes_synthetic.png)
+
+**Monthly laboratory revenue by test category**
+
+![Synthetic laboratory revenue](outputs/figures/laboratory_monthly_revenue_synthetic.png)
+
+### Code and Results
+
+**R script**
+
+- [Complete laboratory analysis workflow](R/laboratory_costs_synthetic.R)
+
+**Output tables**
+
+- [Revenue consistency checks](outputs/tables/laboratory_revenue_quality_synthetic.csv)
+- [Economic summary by study period](outputs/tables/laboratory_period_summary_synthetic.csv)
+- [Results by diagnostic test and period](outputs/tables/laboratory_test_period_summary_synthetic.csv)
+- [Comparison with baseline](outputs/tables/laboratory_baseline_comparison_synthetic.csv)
+- [Monthly testing volumes](outputs/tables/laboratory_monthly_volumes_synthetic.csv)
+- [Monthly laboratory revenue](outputs/tables/laboratory_monthly_revenue_synthetic.csv)
+
+The three intermediate synthetic laboratory datasets are generated automatically by the R script and excluded from version control.
 
 ---
 
