@@ -1,0 +1,25 @@
+period,test_type,source,expected_months,observed_months,missing_months,total_tests,mean_monthly_tests,coverage_pct
+P1 - Baseline 2022-2023,Blood PCR,Local laboratory (synthetic),12,8,4,559,69.875,66.7
+P1 - Baseline 2022-2023,Blood PCR,Outsourced laboratory (synthetic),12,8,4,248,31,66.7
+P1 - Baseline 2022-2023,CSF PCR,Local laboratory (synthetic),12,8,4,44,5.5,66.7
+P1 - Baseline 2022-2023,CSF PCR,Outsourced laboratory (synthetic),12,8,4,17,2.125,66.7
+P1 - Baseline 2022-2023,NS1 antigen,Local laboratory (synthetic),12,12,0,262,21.833333333333332,100
+P1 - Baseline 2022-2023,NS1 antigen,Outsourced laboratory (synthetic),12,12,0,41,3.4166666666666665,100
+P1 - Baseline 2022-2023,Serology IgG,Local laboratory (synthetic),12,12,0,444,37,100
+P1 - Baseline 2022-2023,Serology IgG,Outsourced laboratory (synthetic),12,12,0,61,5.083333333333333,100
+P2 - Epidemic 2023-2024,Blood PCR,Local laboratory (synthetic),12,12,0,2366,197.16666666666666,100
+P2 - Epidemic 2023-2024,Blood PCR,Outsourced laboratory (synthetic),12,12,0,863,71.91666666666667,100
+P2 - Epidemic 2023-2024,CSF PCR,Local laboratory (synthetic),12,12,0,227,18.916666666666668,100
+P2 - Epidemic 2023-2024,CSF PCR,Outsourced laboratory (synthetic),12,12,0,46,3.8333333333333335,100
+P2 - Epidemic 2023-2024,NS1 antigen,Local laboratory (synthetic),12,12,0,854,71.16666666666667,100
+P2 - Epidemic 2023-2024,NS1 antigen,Outsourced laboratory (synthetic),12,12,0,61,5.083333333333333,100
+P2 - Epidemic 2023-2024,Serology IgG,Local laboratory (synthetic),12,12,0,1279,106.58333333333333,100
+P2 - Epidemic 2023-2024,Serology IgG,Outsourced laboratory (synthetic),12,12,0,175,14.583333333333334,100
+P3 - Baseline 2025,Blood PCR,Local laboratory (synthetic),7,7,0,490,70,100
+P3 - Baseline 2025,Blood PCR,Outsourced laboratory (synthetic),7,7,0,215,30.714285714285715,100
+P3 - Baseline 2025,CSF PCR,Local laboratory (synthetic),7,7,0,44,6.285714285714286,100
+P3 - Baseline 2025,CSF PCR,Outsourced laboratory (synthetic),7,7,0,9,1.2857142857142858,100
+P3 - Baseline 2025,NS1 antigen,Local laboratory (synthetic),7,7,0,178,25.428571428571427,100
+P3 - Baseline 2025,NS1 antigen,Outsourced laboratory (synthetic),7,7,0,14,2,100
+P3 - Baseline 2025,Serology IgG,Local laboratory (synthetic),7,7,0,238,34,100
+P3 - Baseline 2025,Serology IgG,Outsourced laboratory (synthetic),7,7,0,33,4.714285714285714,100

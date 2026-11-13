@@ -1,0 +1,33 @@
+period,test_type,source,expected_months,missing_months,missing_pct
+Outside study periods,Blood PCR,Local laboratory (synthetic),11,0,0
+Outside study periods,Blood PCR,Outsourced laboratory (synthetic),11,0,0
+Outside study periods,CSF PCR,Local laboratory (synthetic),11,0,0
+Outside study periods,CSF PCR,Outsourced laboratory (synthetic),11,0,0
+Outside study periods,NS1 antigen,Local laboratory (synthetic),11,0,0
+Outside study periods,NS1 antigen,Outsourced laboratory (synthetic),11,0,0
+Outside study periods,Serology IgG,Local laboratory (synthetic),11,0,0
+Outside study periods,Serology IgG,Outsourced laboratory (synthetic),11,0,0
+P1 - Baseline 2022-2023,Blood PCR,Local laboratory (synthetic),12,4,33.3
+P1 - Baseline 2022-2023,Blood PCR,Outsourced laboratory (synthetic),12,4,33.3
+P1 - Baseline 2022-2023,CSF PCR,Local laboratory (synthetic),12,4,33.3
+P1 - Baseline 2022-2023,CSF PCR,Outsourced laboratory (synthetic),12,4,33.3
+P1 - Baseline 2022-2023,NS1 antigen,Local laboratory (synthetic),12,0,0
+P1 - Baseline 2022-2023,NS1 antigen,Outsourced laboratory (synthetic),12,0,0
+P1 - Baseline 2022-2023,Serology IgG,Local laboratory (synthetic),12,0,0
+P1 - Baseline 2022-2023,Serology IgG,Outsourced laboratory (synthetic),12,0,0
+P2 - Epidemic 2023-2024,Blood PCR,Local laboratory (synthetic),12,0,0
+P2 - Epidemic 2023-2024,Blood PCR,Outsourced laboratory (synthetic),12,0,0
+P2 - Epidemic 2023-2024,CSF PCR,Local laboratory (synthetic),12,0,0
+P2 - Epidemic 2023-2024,CSF PCR,Outsourced laboratory (synthetic),12,0,0
+P2 - Epidemic 2023-2024,NS1 antigen,Local laboratory (synthetic),12,0,0
+P2 - Epidemic 2023-2024,NS1 antigen,Outsourced laboratory (synthetic),12,0,0
+P2 - Epidemic 2023-2024,Serology IgG,Local laboratory (synthetic),12,0,0
+P2 - Epidemic 2023-2024,Serology IgG,Outsourced laboratory (synthetic),12,0,0
+P3 - Baseline 2025,Blood PCR,Local laboratory (synthetic),7,0,0
+P3 - Baseline 2025,Blood PCR,Outsourced laboratory (synthetic),7,0,0
+P3 - Baseline 2025,CSF PCR,Local laboratory (synthetic),7,0,0
+P3 - Baseline 2025,CSF PCR,Outsourced laboratory (synthetic),7,0,0
+P3 - Baseline 2025,NS1 antigen,Local laboratory (synthetic),7,0,0
+P3 - Baseline 2025,NS1 antigen,Outsourced laboratory (synthetic),7,0,0
+P3 - Baseline 2025,Serology IgG,Local laboratory (synthetic),7,0,0
+P3 - Baseline 2025,Serology IgG,Outsourced laboratory (synthetic),7,0,0

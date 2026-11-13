@@ -1,0 +1,169 @@
+date,period,test_type,total_tests,reporting_sources
+2022-06-01,Outside study periods,Blood PCR,98,2
+2022-07-01,P1 - Baseline 2022-2023,Blood PCR,92,2
+2022-08-01,P1 - Baseline 2022-2023,Blood PCR,83,2
+2022-09-01,P1 - Baseline 2022-2023,Blood PCR,NA,0
+2022-10-01,P1 - Baseline 2022-2023,Blood PCR,NA,0
+2022-11-01,P1 - Baseline 2022-2023,Blood PCR,NA,0
+2022-12-01,P1 - Baseline 2022-2023,Blood PCR,NA,0
+2023-01-01,P1 - Baseline 2022-2023,Blood PCR,94,2
+2023-02-01,P1 - Baseline 2022-2023,Blood PCR,101,2
+2023-03-01,P1 - Baseline 2022-2023,Blood PCR,103,2
+2023-04-01,P1 - Baseline 2022-2023,Blood PCR,104,2
+2023-05-01,P1 - Baseline 2022-2023,Blood PCR,127,2
+2023-06-01,P1 - Baseline 2022-2023,Blood PCR,103,2
+2023-07-01,P2 - Epidemic 2023-2024,Blood PCR,273,2
+2023-08-01,P2 - Epidemic 2023-2024,Blood PCR,274,2
+2023-09-01,P2 - Epidemic 2023-2024,Blood PCR,244,2
+2023-10-01,P2 - Epidemic 2023-2024,Blood PCR,239,2
+2023-11-01,P2 - Epidemic 2023-2024,Blood PCR,174,2
+2023-12-01,P2 - Epidemic 2023-2024,Blood PCR,249,2
+2024-01-01,P2 - Epidemic 2023-2024,Blood PCR,312,2
+2024-02-01,P2 - Epidemic 2023-2024,Blood PCR,339,2
+2024-03-01,P2 - Epidemic 2023-2024,Blood PCR,299,2
+2024-04-01,P2 - Epidemic 2023-2024,Blood PCR,261,2
+2024-05-01,P2 - Epidemic 2023-2024,Blood PCR,297,2
+2024-06-01,P2 - Epidemic 2023-2024,Blood PCR,268,2
+2024-07-01,Outside study periods,Blood PCR,88,2
+2024-08-01,Outside study periods,Blood PCR,86,2
+2024-09-01,Outside study periods,Blood PCR,93,2
+2024-10-01,Outside study periods,Blood PCR,93,2
+2024-11-01,Outside study periods,Blood PCR,70,2
+2024-12-01,Outside study periods,Blood PCR,86,2
+2025-01-01,Outside study periods,Blood PCR,112,2
+2025-02-01,Outside study periods,Blood PCR,99,2
+2025-03-01,Outside study periods,Blood PCR,110,2
+2025-04-01,Outside study periods,Blood PCR,94,2
+2025-05-01,P3 - Baseline 2025,Blood PCR,135,2
+2025-06-01,P3 - Baseline 2025,Blood PCR,117,2
+2025-07-01,P3 - Baseline 2025,Blood PCR,96,2
+2025-08-01,P3 - Baseline 2025,Blood PCR,90,2
+2025-09-01,P3 - Baseline 2025,Blood PCR,94,2
+2025-10-01,P3 - Baseline 2025,Blood PCR,95,2
+2025-11-01,P3 - Baseline 2025,Blood PCR,78,2
+2022-06-01,Outside study periods,CSF PCR,2,2
+2022-07-01,P1 - Baseline 2022-2023,CSF PCR,5,2
+2022-08-01,P1 - Baseline 2022-2023,CSF PCR,8,2
+2022-09-01,P1 - Baseline 2022-2023,CSF PCR,NA,0
+2022-10-01,P1 - Baseline 2022-2023,CSF PCR,NA,0
+2022-11-01,P1 - Baseline 2022-2023,CSF PCR,NA,0
+2022-12-01,P1 - Baseline 2022-2023,CSF PCR,NA,0
+2023-01-01,P1 - Baseline 2022-2023,CSF PCR,6,2
+2023-02-01,P1 - Baseline 2022-2023,CSF PCR,8,2
+2023-03-01,P1 - Baseline 2022-2023,CSF PCR,7,2
+2023-04-01,P1 - Baseline 2022-2023,CSF PCR,12,2
+2023-05-01,P1 - Baseline 2022-2023,CSF PCR,8,2
+2023-06-01,P1 - Baseline 2022-2023,CSF PCR,7,2
+2023-07-01,P2 - Epidemic 2023-2024,CSF PCR,25,2
+2023-08-01,P2 - Epidemic 2023-2024,CSF PCR,24,2
+2023-09-01,P2 - Epidemic 2023-2024,CSF PCR,15,2
+2023-10-01,P2 - Epidemic 2023-2024,CSF PCR,18,2
+2023-11-01,P2 - Epidemic 2023-2024,CSF PCR,13,2
+2023-12-01,P2 - Epidemic 2023-2024,CSF PCR,28,2
+2024-01-01,P2 - Epidemic 2023-2024,CSF PCR,26,2
+2024-02-01,P2 - Epidemic 2023-2024,CSF PCR,24,2
+2024-03-01,P2 - Epidemic 2023-2024,CSF PCR,26,2
+2024-04-01,P2 - Epidemic 2023-2024,CSF PCR,19,2
+2024-05-01,P2 - Epidemic 2023-2024,CSF PCR,27,2
+2024-06-01,P2 - Epidemic 2023-2024,CSF PCR,28,2
+2024-07-01,Outside study periods,CSF PCR,4,2
+2024-08-01,Outside study periods,CSF PCR,8,2
+2024-09-01,Outside study periods,CSF PCR,6,2
+2024-10-01,Outside study periods,CSF PCR,9,2
+2024-11-01,Outside study periods,CSF PCR,7,2
+2024-12-01,Outside study periods,CSF PCR,10,2
+2025-01-01,Outside study periods,CSF PCR,5,2
+2025-02-01,Outside study periods,CSF PCR,11,2
+2025-03-01,Outside study periods,CSF PCR,8,2
+2025-04-01,Outside study periods,CSF PCR,10,2
+2025-05-01,P3 - Baseline 2025,CSF PCR,12,2
+2025-06-01,P3 - Baseline 2025,CSF PCR,6,2
+2025-07-01,P3 - Baseline 2025,CSF PCR,9,2
+2025-08-01,P3 - Baseline 2025,CSF PCR,4,2
+2025-09-01,P3 - Baseline 2025,CSF PCR,8,2
+2025-10-01,P3 - Baseline 2025,CSF PCR,6,2
+2025-11-01,P3 - Baseline 2025,CSF PCR,8,2
+2022-06-01,Outside study periods,NS1 antigen,23,2
+2022-07-01,P1 - Baseline 2022-2023,NS1 antigen,29,2
+2022-08-01,P1 - Baseline 2022-2023,NS1 antigen,21,2
+2022-09-01,P1 - Baseline 2022-2023,NS1 antigen,25,2
+2022-10-01,P1 - Baseline 2022-2023,NS1 antigen,19,2
+2022-11-01,P1 - Baseline 2022-2023,NS1 antigen,22,2
+2022-12-01,P1 - Baseline 2022-2023,NS1 antigen,39,2
+2023-01-01,P1 - Baseline 2022-2023,NS1 antigen,20,2
+2023-02-01,P1 - Baseline 2022-2023,NS1 antigen,16,2
+2023-03-01,P1 - Baseline 2022-2023,NS1 antigen,30,2
+2023-04-01,P1 - Baseline 2022-2023,NS1 antigen,19,2
+2023-05-01,P1 - Baseline 2022-2023,NS1 antigen,27,2
+2023-06-01,P1 - Baseline 2022-2023,NS1 antigen,36,2
+2023-07-01,P2 - Epidemic 2023-2024,NS1 antigen,63,2
+2023-08-01,P2 - Epidemic 2023-2024,NS1 antigen,91,2
+2023-09-01,P2 - Epidemic 2023-2024,NS1 antigen,77,2
+2023-10-01,P2 - Epidemic 2023-2024,NS1 antigen,74,2
+2023-11-01,P2 - Epidemic 2023-2024,NS1 antigen,60,2
+2023-12-01,P2 - Epidemic 2023-2024,NS1 antigen,69,2
+2024-01-01,P2 - Epidemic 2023-2024,NS1 antigen,75,2
+2024-02-01,P2 - Epidemic 2023-2024,NS1 antigen,68,2
+2024-03-01,P2 - Epidemic 2023-2024,NS1 antigen,79,2
+2024-04-01,P2 - Epidemic 2023-2024,NS1 antigen,81,2
+2024-05-01,P2 - Epidemic 2023-2024,NS1 antigen,78,2
+2024-06-01,P2 - Epidemic 2023-2024,NS1 antigen,100,2
+2024-07-01,Outside study periods,NS1 antigen,35,2
+2024-08-01,Outside study periods,NS1 antigen,25,2
+2024-09-01,Outside study periods,NS1 antigen,29,2
+2024-10-01,Outside study periods,NS1 antigen,14,2
+2024-11-01,Outside study periods,NS1 antigen,29,2
+2024-12-01,Outside study periods,NS1 antigen,31,2
+2025-01-01,Outside study periods,NS1 antigen,36,2
+2025-02-01,Outside study periods,NS1 antigen,27,2
+2025-03-01,Outside study periods,NS1 antigen,33,2
+2025-04-01,Outside study periods,NS1 antigen,30,2
+2025-05-01,P3 - Baseline 2025,NS1 antigen,32,2
+2025-06-01,P3 - Baseline 2025,NS1 antigen,25,2
+2025-07-01,P3 - Baseline 2025,NS1 antigen,33,2
+2025-08-01,P3 - Baseline 2025,NS1 antigen,26,2
+2025-09-01,P3 - Baseline 2025,NS1 antigen,23,2
+2025-10-01,P3 - Baseline 2025,NS1 antigen,29,2
+2025-11-01,P3 - Baseline 2025,NS1 antigen,24,2
+2022-06-01,Outside study periods,Serology IgG,41,2
+2022-07-01,P1 - Baseline 2022-2023,Serology IgG,48,2
+2022-08-01,P1 - Baseline 2022-2023,Serology IgG,46,2
+2022-09-01,P1 - Baseline 2022-2023,Serology IgG,39,2
+2022-10-01,P1 - Baseline 2022-2023,Serology IgG,32,2
+2022-11-01,P1 - Baseline 2022-2023,Serology IgG,34,2
+2022-12-01,P1 - Baseline 2022-2023,Serology IgG,34,2
+2023-01-01,P1 - Baseline 2022-2023,Serology IgG,42,2
+2023-02-01,P1 - Baseline 2022-2023,Serology IgG,44,2
+2023-03-01,P1 - Baseline 2022-2023,Serology IgG,50,2
+2023-04-01,P1 - Baseline 2022-2023,Serology IgG,40,2
+2023-05-01,P1 - Baseline 2022-2023,Serology IgG,59,2
+2023-06-01,P1 - Baseline 2022-2023,Serology IgG,37,2
+2023-07-01,P2 - Epidemic 2023-2024,Serology IgG,134,2
+2023-08-01,P2 - Epidemic 2023-2024,Serology IgG,143,2
+2023-09-01,P2 - Epidemic 2023-2024,Serology IgG,116,2
+2023-10-01,P2 - Epidemic 2023-2024,Serology IgG,114,2
+2023-11-01,P2 - Epidemic 2023-2024,Serology IgG,90,2
+2023-12-01,P2 - Epidemic 2023-2024,Serology IgG,96,2
+2024-01-01,P2 - Epidemic 2023-2024,Serology IgG,91,2
+2024-02-01,P2 - Epidemic 2023-2024,Serology IgG,144,2
+2024-03-01,P2 - Epidemic 2023-2024,Serology IgG,120,2
+2024-04-01,P2 - Epidemic 2023-2024,Serology IgG,142,2
+2024-05-01,P2 - Epidemic 2023-2024,Serology IgG,132,2
+2024-06-01,P2 - Epidemic 2023-2024,Serology IgG,132,2
+2024-07-01,Outside study periods,Serology IgG,34,2
+2024-08-01,Outside study periods,Serology IgG,36,2
+2024-09-01,Outside study periods,Serology IgG,46,2
+2024-10-01,Outside study periods,Serology IgG,35,2
+2024-11-01,Outside study periods,Serology IgG,36,2
+2024-12-01,Outside study periods,Serology IgG,30,2
+2025-01-01,Outside study periods,Serology IgG,33,2
+2025-02-01,Outside study periods,Serology IgG,40,2
+2025-03-01,Outside study periods,Serology IgG,44,2
+2025-04-01,Outside study periods,Serology IgG,58,2
+2025-05-01,P3 - Baseline 2025,Serology IgG,31,2
+2025-06-01,P3 - Baseline 2025,Serology IgG,46,2
+2025-07-01,P3 - Baseline 2025,Serology IgG,45,2
+2025-08-01,P3 - Baseline 2025,Serology IgG,52,2
+2025-09-01,P3 - Baseline 2025,Serology IgG,36,2
+2025-10-01,P3 - Baseline 2025,Serology IgG,32,2
+2025-11-01,P3 - Baseline 2025,Serology IgG,29,2
