@@ -11,22 +11,35 @@ Aix-Marseille University | 2026
 
 ## Project Overview
 
-This project demonstrates an end-to-end analytical framework for studying the epidemiological and medico-economic dimensions of dengue epidemics using R.
+This project demonstrates a reproducible analytical framework for exploring the epidemiological and medico-economic dimensions of dengue epidemics using R.
 
 Inspired by methodological work conducted during my 2026 internship at Santé publique France, Antilles, the repository brings together epidemiological surveillance, healthcare utilization, reimbursement analysis, laboratory activity, and probabilistic cost modeling.
 
-**All publicly available analyses use synthetic data.** The repository does not contain original surveillance observations, restricted datasets, or validated estimates of the economic burden of dengue in Martinique.
+**All publicly available analyses use synthetic data.** The repository does not contain original surveillance observations, restricted datasets, or validated estimates of the economic burden of dengue in Martinique. The five analytical modules are methodological demonstrations rather than a single validated economic estimation model.
+
+## Scientific Research Report
+
+**[Read the Scientific Case Study — HTML Report](reports/scientific_case_study.html)**  
+**[View the Quarto Source Code](reports/scientific_case_study.qmd)**
+
+*A Reproducible Framework for Epidemiological and Medico-Economic Analysis of Dengue in Martinique: A Synthetic Data Case Study*
+
+The English-language report presents the methodology, results, discussion, conclusions, and **14 scientific figures**, including a synthetic reconstruction of comparative surveillance curves for dengue, influenza, COVID-19, and bronchiolitis.
+
+The HTML report is self-contained and can be downloaded from GitHub and opened in a web browser. A directly hosted web version is not yet available.
 
 ## Explore the Project
 
 | Resource | Description |
 |---|---|
+| [Scientific Report](reports/scientific_case_study.html) | Complete Quarto HTML case study with figures and scientific interpretation |
+| [Quarto Source](reports/scientific_case_study.qmd) | Editable source of the scientific case study |
 | [Technical Documentation](TECHNICAL_DOCUMENTATION.md) | Detailed methodology, analytical workflows, results, figures and reproducibility |
-| [R Scripts](R/) | Source code for nine reproducible analytical workflows |
+| [R Scripts](R/) | Source code for nine analytical workflows |
 | [Figures](outputs/figures/) | Epidemiological and medico-economic visualizations |
 | [Results Tables](outputs/tables/) | Exported statistical and economic summaries |
 
-*A scientific case study, Python analysis and interactive Shiny application are planned extensions.*
+*Python analyses and an interactive Shiny application are planned extensions.*
 
 ## Research Objectives
 
@@ -36,7 +49,7 @@ The project explores how to:
 - Estimate descriptive differences in case counts and healthcare utilization.
 - Process healthcare and pharmaceutical reimbursement data.
 - Evaluate diagnostic laboratory activity and associated costs.
-- Combine direct and indirect costs in a cost-of-illness framework.
+- Examine direct and indirect costs in a hypothetical cost-of-illness framework.
 - Quantify economic uncertainty using probabilistic simulations.
 - Communicate analytical findings through reproducible scientific reporting.
 
@@ -80,11 +93,13 @@ Monte Carlo simulations illustrating uncertainty in a synthetic cost-of-illness 
 
 **Scientific visualization:** ggplot2, patchwork, reproducible graphical reporting
 
+**Scientific reporting:** Quarto, Markdown, HTML, mathematical notation and cross-referenced figures
+
 **Research practices:** Data validation, analytical documentation, reproducible workflows, Git and GitHub
 
 ## Reproducibility
 
-The R scripts generate or process synthetic datasets and export results as CSV tables and scientific figures.
+The R scripts generate or process synthetic datasets and export results as CSV tables and scientific figures. The Quarto source uses these generated figures to produce a self-contained HTML report.
 
 Some scripts depend on synthetic intermediate files created by other modules, and certain local paths still require adaptation.
 
@@ -92,12 +107,12 @@ For detailed execution instructions, methodological limitations and available ou
 
 ## Next Developments
 
-- **Quarto:** Scientific case study with structured methods, results and discussion.
 - **Python:** Cross-language data processing and validation of selected R analyses.
 - **Shiny:** Interactive epidemiological dashboard for exploring synthetic indicators.
 - **Reproducibility:** Improved project portability and automated checks.
+- **GitHub Pages:** Direct browser access to the scientific HTML report.
 
-These extensions are planned and are not yet part of the published implementation.
+These developments are planned and are not yet part of the published implementation.
 
 ## About the Author
 
