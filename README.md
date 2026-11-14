@@ -19,8 +19,10 @@ Inspired by methodological work conducted during my 2026 internship at Santé pu
 
 ## Scientific Research Report
 
-**[Read the Scientific Case Study — HTML Report](reports/scientific_case_study.html)**  
-**[View the Quarto Source Code](reports/scientific_case_study.qmd)**
+
+- 📊 **[Read the Scientific Report Online](https://mnngt.github.io/dengue-medico-economic-analysis/reports/scientific_case_study.html)**
+- 💻 **[View the Quarto Source Code](reports/scientific_case_study.qmd)**
+
 
 *A Reproducible Framework for Epidemiological and Medico-Economic Analysis of Dengue in Martinique: A Synthetic Data Case Study*
 
