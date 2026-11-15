@@ -1,7 +1,7 @@
 
 # Dengue Medico-Economic Analysis in Martinique
 
-### Epidemiology · Biostatistics · Health Economics · R Programming
+### Epidemiology · Biostatistics · Health Economics · R Programming · Shiny
 
 **Marie-Noëlle Nogeant**  
 Master's Degree in Public Health – Quantitative and Econometric Methods for Health Research (MQERS)  
@@ -15,33 +15,73 @@ This project demonstrates a reproducible analytical framework for exploring the 
 
 Inspired by methodological work conducted during my 2026 internship at Santé publique France, Antilles, the repository brings together epidemiological surveillance, healthcare utilization, reimbursement analysis, laboratory activity, and probabilistic cost modeling.
 
-**All publicly available analyses use synthetic data.** The repository does not contain original surveillance observations, restricted datasets, or validated estimates of the economic burden of dengue in Martinique. The five analytical modules are methodological demonstrations rather than a single validated economic estimation model.
+The project also includes a scientific report developed with Quarto and an interactive epidemiological surveillance dashboard developed with R Shiny.
 
-## Scientific Research Report
+**All publicly available analyses use synthetic data.** The repository does not contain original surveillance observations, restricted datasets, or validated estimates of the economic burden of dengue in Martinique.
 
+The five analytical modules are independent methodological demonstrations rather than components of a single validated economic estimation model.
 
-- 📊 **[Read the Scientific Report Online](https://mnngt.github.io/dengue-medico-economic-analysis/reports/scientific_case_study.html)**
-- 💻 **[View the Quarto Source Code](reports/scientific_case_study.qmd)**
+## Featured Projects
 
+### Scientific Research Report — R & Quarto
+
+**[Read the Scientific Report Online](https://mnngt.github.io/dengue-medico-economic-analysis/reports/scientific_case_study.html)**
+
+**[View the Quarto Source Code](reports/scientific_case_study.qmd)**
 
 *A Reproducible Framework for Epidemiological and Medico-Economic Analysis of Dengue in Martinique: A Synthetic Data Case Study*
 
-The English-language report presents the methodology, results, discussion, conclusions, and **14 scientific figures**, including a synthetic reconstruction of comparative surveillance curves for dengue, influenza, COVID-19, and bronchiolitis.
+The English-language scientific report presents the study design, methodology, results, discussion, conclusions, and **14 scientific figures**.
 
-The HTML report is self-contained and can be downloaded from GitHub and opened in a web browser. A directly hosted web version is not yet available.
+It covers epidemiological surveillance, healthcare reimbursement analysis, pharmaceutical expenditure, diagnostic laboratory activity, and probabilistic cost-of-illness modeling.
+
+The report also includes a synthetic reconstruction of comparative surveillance curves for dengue, influenza, COVID-19, and bronchiolitis.
+
+The HTML report is published through GitHub Pages and can be consulted directly in a web browser.
+
+### Interactive Epidemiological Dashboard — R Shiny
+
+**[Launch the Interactive Shiny Dashboard](https://mnngt-epi.shinyapps.io/dengue-surveillance-dashboard/)**
+
+**[View the Shiny Source Code](shiny/app.R)**
+
+**[View the Shiny Documentation](shiny/README.md)**
+
+An interactive epidemiological surveillance application developed with R Shiny, ggplot2, and synthetic surveillance data.
+
+The dashboard includes:
+
+- Interactive selection of epidemiological indicators.
+- Comparison of three predefined study periods (P1, P2, and P3).
+- Weekly epidemiological curves and calendar-time visualizations.
+- Dynamic key performance indicators (KPIs).
+- Comparison of average weekly surveillance activity.
+- Descriptive statistical summaries.
+- Automated data quality assessment.
+- Interactive filters for epidemiological periods and weeks.
+- CSV exports of data and statistical summaries.
+- PNG exports of scientific visualizations.
+
+The application demonstrates the integration of data management, validation, analysis, visualization, and interactive reporting within a reproducible R workflow.
+
+All observations are synthetic and do not represent actual surveillance data from Martinique.
+
+---
 
 ## Explore the Project
 
 | Resource | Description |
 |---|---|
-| [Scientific Report](reports/scientific_case_study.html) | Complete Quarto HTML case study with figures and scientific interpretation |
-| [Quarto Source](reports/scientific_case_study.qmd) | Editable source of the scientific case study |
-| [Technical Documentation](TECHNICAL_DOCUMENTATION.md) | Detailed methodology, analytical workflows, results, figures and reproducibility |
+| [Scientific Report — Read Online](https://mnngt.github.io/dengue-medico-economic-analysis/reports/scientific_case_study.html) | Complete scientific case study accessible through GitHub Pages |
+| [Interactive Shiny Dashboard](https://mnngt-epi.shinyapps.io/dengue-surveillance-dashboard/) | Live epidemiological surveillance application |
+| [Quarto Source](reports/scientific_case_study.qmd) | Editable source code of the scientific report |
+| [Shiny Application](shiny/) | Application source code, synthetic data and documentation |
+| [Technical Documentation](TECHNICAL_DOCUMENTATION.md) | Detailed methodology, analytical workflows, results and reproducibility |
 | [R Scripts](R/) | Source code for nine analytical workflows |
 | [Figures](outputs/figures/) | Epidemiological and medico-economic visualizations |
 | [Results Tables](outputs/tables/) | Exported statistical and economic summaries |
 
-*Python analyses and an interactive Shiny application are planned extensions.*
+---
 
 ## Research Objectives
 
@@ -50,10 +90,14 @@ The project explores how to:
 - Analyze dengue surveillance indicators and compare epidemiological periods.
 - Estimate descriptive differences in case counts and healthcare utilization.
 - Process healthcare and pharmaceutical reimbursement data.
-- Evaluate diagnostic laboratory activity and associated costs.
+- Evaluate diagnostic laboratory activity and associated economic components.
 - Examine direct and indirect costs in a hypothetical cost-of-illness framework.
 - Quantify economic uncertainty using probabilistic simulations.
+- Validate the quality and consistency of epidemiological datasets.
+- Develop interactive tools for epidemiological data exploration.
 - Communicate analytical findings through reproducible scientific reporting.
+
+---
 
 ## Analytical Modules
 
@@ -65,7 +109,11 @@ The project explores how to:
 | **04 — Laboratory Costs** | Diagnostic testing, revenues and outsourced activity |
 | **05 — Monte Carlo** | Cost-of-illness modeling, uncertainty and sensitivity analyses |
 
-The repository includes **nine R scripts**, organized into five scientific modules.
+The repository includes **nine R analytical scripts**, organized into five scientific modules.
+
+These modules illustrate complementary methodological approaches and are not combined into a single validated economic burden estimate.
+
+---
 
 ## Selected Visualizations
 
@@ -81,40 +129,78 @@ Monte Carlo simulations illustrating uncertainty in a synthetic cost-of-illness 
 
 ![Synthetic Monte Carlo cost distributions](outputs/figures/monte_carlo_synthetic_distributions.png)
 
+### Interactive Epidemiological Surveillance
+
+The Shiny dashboard extends the static analytical outputs by allowing users to explore synthetic surveillance indicators interactively.
+
+**[Explore the Live Dashboard](https://mnngt-epi.shinyapps.io/dengue-surveillance-dashboard/)**
+
 *All illustrated observations and economic amounts are fictional and should not be interpreted as official epidemiological or financial estimates.*
+
+---
 
 ## Technical Skills Demonstrated
 
 **Statistical programming:** R, data.table, dplyr, tidyr
 
-**Epidemiological analysis:** Time-series comparisons, ISO-week alignment, descriptive indicators, age-stratified analysis
+**Epidemiological analysis:** Time-series comparisons, ISO-week alignment, descriptive indicators, age-stratified analysis, healthcare utilization and surveillance indicators
 
-**Health economics:** Healthcare reimbursements, cost-of-illness methods, direct and indirect costs
+**Health economics:** Healthcare reimbursement processing, cost-of-illness methods, direct and indirect costs
 
-**Statistical modeling:** Monte Carlo simulation, uncertainty and sensitivity analyses
+**Statistical modeling:** Monte Carlo simulation, uncertainty quantification and sensitivity analyses
 
-**Scientific visualization:** ggplot2, patchwork, reproducible graphical reporting
+**Scientific visualization:** ggplot2, patchwork, epidemic curves, comparative graphics and reproducible graphical reporting
 
-**Scientific reporting:** Quarto, Markdown, HTML, mathematical notation and cross-referenced figures
+**Interactive applications:** R Shiny, reactive programming, interactive filters, dynamic indicators and downloadable outputs
 
-**Research practices:** Data validation, analytical documentation, reproducible workflows, Git and GitHub
+**Data management and quality control:** Data import, variable validation, missing-value checks, duplicate detection, consistency checks and descriptive aggregation
+
+**Scientific reporting:** Quarto, Markdown, HTML, mathematical notation, scientific interpretation and cross-referenced figures
+
+**Research practices:** Analytical documentation, reproducible workflows, version control, Git and GitHub
+
+---
 
 ## Reproducibility
 
-The R scripts generate or process synthetic datasets and export results as CSV tables and scientific figures. The Quarto source uses these generated figures to produce a self-contained HTML report.
+The R analytical scripts generate or process synthetic datasets and export statistical results as CSV tables and scientific figures.
 
-Some scripts depend on synthetic intermediate files created by other modules, and certain local paths still require adaptation.
+The Quarto source uses generated figures to produce a self-contained HTML scientific report.
+
+The Shiny application uses a synthetic epidemiological dataset included in its application directory, allowing interactive exploration of surveillance indicators.
+
+The Shiny application can be launched locally with:
+
+```r
+shiny::runApp("shiny")
+```
+
+Required R packages for the Shiny application include `shiny` and `ggplot2`.
+
+Some analytical scripts still depend on synthetic intermediate files generated by other modules, and certain local paths require adaptation.
+
+The complete repository is therefore a methodological portfolio rather than a fully automated, independently portable research pipeline.
 
 For detailed execution instructions, methodological limitations and available outputs, see the [Technical Documentation](TECHNICAL_DOCUMENTATION.md).
 
+For application-specific instructions, see the [Shiny Documentation](shiny/README.md).
+
+---
+
 ## Next Developments
 
-- **Python:** Cross-language data processing and validation of selected R analyses.
-- **Shiny:** Interactive epidemiological dashboard for exploring synthetic indicators.
-- **Reproducibility:** Improved project portability and automated checks.
-- **GitHub Pages:** Direct browser access to the scientific HTML report.
+Future improvements may include:
 
-These developments are planned and are not yet part of the published implementation.
+- **Reproducibility:** Improved project portability, dependency management and automated validation tests.
+- **R workflows:** Further modularization and automation of analytical scripts.
+- **Statistical methods:** Additional methodological demonstrations using synthetic epidemiological datasets.
+- **Python and SQL:** Optional extensions for cross-language data processing and validation.
+
+The Quarto scientific report and interactive R Shiny application are already implemented and publicly accessible.
+
+Future developments will focus on improving robustness, methodological documentation and analytical reproducibility.
+
+---
 
 ## About the Author
 
@@ -122,7 +208,7 @@ I hold a Master's Degree in Public Health, specializing in Quantitative and Econ
 
 My academic background includes degrees in mathematics and physics-chemistry, as well as two years of medical studies.
 
-My professional interests include epidemiology, biostatistics, health economics, data science, clinical research and reproducible scientific programming.
+My professional interests include epidemiology, biostatistics, health economics, data science, infectious disease surveillance, clinical research and reproducible scientific programming.
 
 **GitHub:** [MNNGT](https://github.com/MNNGT)
 
