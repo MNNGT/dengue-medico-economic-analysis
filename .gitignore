@@ -8,3 +8,6 @@ data/simulated/epidemiology/
 
 # macOS metadata
 .DS_Store
+
+# Shiny deployment metadata
+/shiny/rsconnect/
