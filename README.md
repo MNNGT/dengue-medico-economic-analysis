@@ -1,4 +1,8 @@
 
+**Language / Langue :** [English](README.md) | [Français](README.fr.md)
+
+---
+
 # Dengue Medico-Economic Analysis in Martinique
 
 ### Epidemiology · Biostatistics · Health Economics · R Programming · Shiny
