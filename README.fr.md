@@ -3,6 +3,14 @@
 
 ---
 
+### Rapports scientifiques
+
+- 🇫🇷 [Rapport scientifique – Français](https://mnngt.github.io/dengue-medico-economic-analysis/reports/scientific_case_study.fr.html)
+- 🇬🇧 [Scientific Report – English](https://mnngt.github.io/dengue-medico-economic-analysis/reports/scientific_case_study.html)
+- 📊 [Tableau de bord interactif Shiny](https://mnngt-epi.shinyapps.io/dengue-surveillance-dashboard/)
+
+---
+
 # Analyse médico-économique de la dengue en Martinique
 
 ### Épidémiologie · Biostatistique · Économie de la santé · Programmation R · Shiny
